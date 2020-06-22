@@ -1,6 +1,6 @@
 # A template README for social science replication packages
 
-The template README provided on this website is in a form that follows best practices as defined by a number of data editors at social science journals. A full list of endorsers is listed in [Endorsements](Endorsements.md).
+The template README provided on this website is in a form that follows best practices as defined by a number of data editors at social science journals. A full list of endorsers is listed in [Endorsers](Endorsers.md).
 
 ## Formats
 
@@ -17,7 +17,8 @@ The template README is available in a variety of formats:
 The typical README in social science journals serves multiple purposes, which we describe in the sections below. The template README contains sections for all these elements, though some elements may be moved to the main manuscript for some journals.
 
 ### Data and Code Availability Statement
-- it contains information about the sources of data  used in the replication package, in addition to or instead of such detailed description in the manuscript. This is sometimes referred to as a "Data Availability Statement," or if it also describes where additional code might be obtained, "Data and Code Availability Statements" (DCAS). A DCAS goes beyond a typical data citation, as it describes additional information necessary for the obtention of the data. These may include required registrations, memberships, application procedures, monetary cost, or other qualifications, beyond a simple URL for download which is typically part of Data Citations. 
+
+It contains information about the sources of data  used in the replication package, in addition to or instead of such detailed description in the manuscript. This is sometimes referred to as a "Data Availability Statement," or if it also describes where additional code might be obtained, "Data and Code Availability Statements" (DCAS). A DCAS goes beyond a typical data citation, as it describes additional information necessary for the obtention of the data. These may include required registrations, memberships, application procedures, monetary cost, or other qualifications, beyond a simple URL for download which is typically part of Data Citations. 
 
 ### Computational Requirements
 
@@ -36,4 +37,4 @@ We note that a good replication package uses a minimal number of automated scrip
 
 ## License
 
-:![CC-BY-NC](assets/cc-by-nc.png) The README is under a CC-BY-NC license. Usage by commercial entities is allowed, reselling it is not.
+![CC-BY-NC](assets/cc-by-nc.png) The README is under a CC-BY-NC license. Usage by commercial entities is allowed, reselling it is not.
