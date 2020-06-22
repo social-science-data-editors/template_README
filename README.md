@@ -10,7 +10,7 @@ The template README is available in a variety of formats:
 - [LaTeX](templates/README.tex)
 - [Word](templates/README.docx)
 - [PDF](templates/README.pdf)
-- [Markdown](https://github.com/social-science-data-editors/template-README/blob/master/template-README.md)
+- [Markdown](https://github.com/social-science-data-editors/template_README/blob/master/template-README.md)
 
 ## Description
 
@@ -36,4 +36,4 @@ We note that a good replication package uses a minimal number of automated scrip
 
 ## License
 
-The README is under a CC-BY license.
+:![CC-BY-NC](assets/cc-by-nc.png) The README is under a CC-BY-NC license. Usage by commercial entities is allowed, reselling it is not.
