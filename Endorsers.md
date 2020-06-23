@@ -9,6 +9,6 @@ Authors should continue to consult the journal websites to check if the README i
 ## Endorsers
 
 - American Economic Association, Lars Vilhuber ([AEA Data Editor](https://aeadataeditor.github.io/aea-de-guidance/)), July 2020
-- Review of Economic Studies, Miklos Kóren ([Data Editor](https://restud.github.io/data-editor/)), July 2020
+- Review of Economic Studies, Miklós Koren ([Data Editor](https://restud.github.io/data-editor/)), July 2020
 - Economic Journal, Joan Llull (Data Editor), July 2020
 - Canadian Journal of Economics, Peter Morrow (Data Editor), July 2020
