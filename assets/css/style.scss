@@ -1,0 +1,28 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+$base-color: #924046;
+a {
+  color: $base-color;
+}
+
+a:hover, a:focus {
+  color: $base-color;
+  font-weight: normal;
+  text-decoration: darken($base-color, 10% ) 
+}
+
+body {
+  color: #222222;
+}
+
+footer {
+  color: #c5c2c2;
+}
+
+.footeremph {
+  color: #222222;
+  text-decoration: underline;
+}
