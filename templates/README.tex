@@ -199,7 +199,7 @@ INSTRUCTIONS: In some cases, authors will provide one dataset (file) per
 data source, and the code to combine them. In others, in particular when
 data access might be restrictive, the replication package may only
 include derived/analysis data. Every file should be described. This can
-be provided as a Excel/CSV table, or in the table below.
+be provided as a Excel/CSV table, or in the table below (preferred).
 \end{quote}
 
 \begin{longtable}[]{@{}llll@{}}
@@ -271,6 +271,14 @@ are easy to set up and implement.
 \hypertarget{software-requirements}{%
 \subsubsection{Software Requirements}\label{software-requirements}}
 
+\begin{quote}
+INSTRUCTIONS: List all of the software requirements, up to and including
+any operating system requirements, for the entire set of code. It is
+suggested to distribute most dependencies together with the replication
+package if allowed, in particular if sourced from unversioned code
+repositories, Github repos, and personal webpages.
+\end{quote}
+
 \begin{itemize}
 \tightlist
 \item
@@ -328,8 +336,30 @@ Portions of the code use bash scripting, which may require Linux.
 Portions of the code use Powershell scripting, which may require Windows
 10 or higher.
 
+\hypertarget{memory-and-runtime-requirements}{%
+\subsubsection{Memory and Runtime
+Requirements}\label{memory-and-runtime-requirements}}
+
+\begin{quote}
+INSTRUCTIONS: Memory and compute-time requirements may also be relevant
+or even critical. Some example text follows. It may be useful to break
+this out by Table/Figure/section of processing. For instance, some
+estimation routines might run for weeks, but data prep and creating
+figures might only take a few minutes.
+\end{quote}
+
+The code was last run on a \textbf{4-core Intel-based laptop with MacOS
+version 10.14.4}.
+
+Portions of the code were last run on a \textbf{32-core Intel server
+with 1024 GB of RAM, 12 TB of fast local storage}. Computation took 734
+hours.
+
+Portions of the code were last run on a \textbf{12-node AWS R3 cluster,
+consuming 20,000 core-hours}.
+
 \hypertarget{description-of-programs}{%
-\subsubsection{Description of programs}\label{description-of-programs}}
+\subsection{Description of programs}\label{description-of-programs}}
 
 \begin{quote}
 INSTRUCTIONS: Give a high-level overview of the program files and their
@@ -371,27 +401,9 @@ purpose. Remove redundant/ obsolete files from the Replication archive.
   outlined below, your results may differ.
 \end{itemize}
 
-\hypertarget{memory-and-runtime-requirements}{%
-\subsubsection{Memory and Runtime
-Requirements}\label{memory-and-runtime-requirements}}
-
-\begin{quote}
-INSTRUCTIONS: Memory and compute-time requirements may also be relevant
-or even critical. Some example text follows.
-\end{quote}
-
-The code was last run on a \textbf{4-core Intel-based laptop with MacOS
-version 10.14.4}.
-
-Portions of the code were last run on a \textbf{32-core Intel server
-with 1024 GB of RAM, 12 TB of fast local storage}. Computation took 734
-hours.
-
-Portions of the code were last run on a \textbf{12-node AWS R3 cluster,
-consuming 20,000 core-hours}.
-
-\hypertarget{instructions}{%
-\subsection{Instructions}\label{instructions}}
+\hypertarget{instructions-to-replicators}{%
+\subsection{Instructions to
+Replicators}\label{instructions-to-replicators}}
 
 \begin{quote}
 INSTRUCTIONS: The first two sections ensure that the data and software
