@@ -1,0 +1,1 @@
+docker run  --rm    -v ".":"/github/workspace" pandoc/latex:2.9 template-README.md --standalone -t html5 -o temp/README.html --metadata pagetitle=README
