@@ -75,6 +75,9 @@ Computational requirements
 > INSTRUCTIONS: We strongly suggest providing setup scripts that install/set up the environment. Sample scripts for [Stata](https://github.com/gslab-econ/template/blob/master/config/config_stata.do),  [R](https://github.com/labordynamicsinstitute/paper-template/blob/master/programs/global-libraries.R), and [Python](https://pip.readthedocs.io/en/1.1/requirements.html) are easy to set up and implement.
 
 ### Software Requirements
+
+> INSTRUCTIONS: List all of the software requirements, up to and including any operating system requirements, for the entire set of code. It is suggested to distribute most dependencies together with the replication package if allowed, in particular if sourced from unversioned code repositories, Github repos, and personal webpages.
+
 - Stata (code was last run with version 15)
   - `estout` (as of 2018-05-12)
   - `rdrobust` (as of 2019-01-05)
@@ -94,7 +97,19 @@ Portions of the code use bash scripting, which may require Linux.
 
 Portions of the code use Powershell scripting, which may require Windows 10 or higher.
 
-### Description of programs
+
+
+### Memory and Runtime Requirements
+> INSTRUCTIONS: Memory and compute-time requirements may also be relevant or even critical. Some example text follows. It may be useful to break this out by Table/Figure/section of processing. For instance, some estimation routines might run for weeks, but data prep and creating figures might only take a few minutes.
+
+The code was last run on a **4-core Intel-based laptop with MacOS version 10.14.4**. 
+
+Portions of the code were last run on a **32-core Intel server with 1024 GB of RAM, 12 TB of fast local storage**. Computation took 734 hours. 
+
+Portions of the code were last run on a **12-node AWS R3 cluster, consuming 20,000 core-hours**.  
+
+## Description of programs
+
 > INSTRUCTIONS: Give a high-level overview of the program files and their purpose. Remove redundant/ obsolete files from the Replication archive.
 
 - Programs in `programs/01_dataprep` will extract and reformat all datasets referenced above. The file `programs/01_dataprep/master.do` will run them all.
@@ -104,18 +119,8 @@ Portions of the code use Powershell scripting, which may require Windows 10 or h
 - The program `programs/00_setup.do` will populate the `programs/ado` directory with updated ado packages, but for purposes of exact reproduction, this is not needed. The file `programs/00_setup.log` identifies the versions as they were last updated.
 - The program `programs/config.do` contains parameters used by all programs, including a random seed. Note that the random seed is set once for each of the two sequences (in `02_analysis` and `03_appendix`). If running in any order other than the one outlined below, your results may differ.
 
+## Instructions to Replicators
 
-### Memory and Runtime Requirements
-> INSTRUCTIONS: Memory and compute-time requirements may also be relevant or even critical. Some example text follows.
-
-The code was last run on a **4-core Intel-based laptop with MacOS version 10.14.4**. 
-
-Portions of the code were last run on a **32-core Intel server with 1024 GB of RAM, 12 TB of fast local storage**. Computation took 734 hours. 
-
-Portions of the code were last run on a **12-node AWS R3 cluster, consuming 20,000 core-hours**.  
-
-Instructions
-------------
 > INSTRUCTIONS: The first two sections ensure that the data and software necessary to conduct the replication have been collected. This section then describes a human-readable instruction to conduct the replication. This may be simple, or may involve many complicated steps. It should be a simple list, no excess prose. Strict linear sequence. If more than 4-5 manual steps, please wrap a master program/Makefile around them, in logical sequences. Examples follow.
 
 - Edit `programs/config.do` to adjust the default path
