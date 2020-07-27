@@ -31,7 +31,7 @@ jobs:
       run: "[[ -d temp ]] || mkdir temp "
 
     - name: Fix webroot
-      run: _scripts/set_webroot.sh template-README.md temp/README.md
+      run: _scripts/set_webroot.sh template-README.md _README.md
 
     # Runs a set of commands using the runners shell
     - name: Run docker for HTML 
@@ -48,11 +48,11 @@ jobs:
     - name: Run docker for Docx
       uses: docker://pandoc/latex:2.9
       with:
-          args: "temp/README.md --standalone -t docx                           -o templates/README.docx --lua-filter=_scripts/links-to-html.lua"
+          args: "_README.md --standalone -t docx                           -o templates/README.docx --lua-filter=_scripts/links-to-html.lua"
     - name: Run docker for latex
       uses: docker://pandoc/latex:2.9
       with:
-          args: "temp/README.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
+          args: "_README.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
     - name: Add files
       run: |
         git add templates/README.*
