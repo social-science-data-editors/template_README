@@ -24,21 +24,23 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
     - name: Create directory
       run: "[[ -d templates ]] || mkdir templates "
 
-    # Runs a single command using the runners shell
     - name: Create temp directory
       run: "[[ -d temp ]] || mkdir temp "
+
+    - name: Fix webroot
+      run: _scripts/set_webroot.sh template-README.md _README.md
 
     # Runs a set of commands using the runners shell
     - name: Run docker for HTML 
       uses: docker://pandoc/latex:2.9
       with:
-          args: "template-README.md --standalone -t html5                          -o temp/README.html --metadata pagetitle=README "
+          args: "_README.md --standalone -t html5                          -o templates/README.html --metadata pagetitle=README --lua-filter=_scripts/links-to-html.lua"
+
     - name: Convert HTML to PDF
-      run: "/usr/bin/xvfb-run /usr/bin/wkhtmltopdf temp/README.html templates/README.pdf"
+      run: "/usr/bin/xvfb-run /usr/bin/wkhtmltopdf templates/README.html templates/README.pdf"
     # Runs a single command using the runners shell
     - name: Remove temp directory
       run: "rm -rf temp "
@@ -46,11 +48,11 @@ jobs:
     - name: Run docker for Docx
       uses: docker://pandoc/latex:2.9
       with:
-          args: "template-README.md --standalone -t docx                           -o templates/README.docx "
+          args: "_README.md --standalone -t docx                           -o templates/README.docx --lua-filter=_scripts/links-to-html.lua"
     - name: Run docker for latex
       uses: docker://pandoc/latex:2.9
       with:
-          args: "template-README.md --standalone -t latex --template=default.latex -o templates/README.tex"
+          args: "_README.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
     - name: Add files
       run: |
         git add templates/README.*
