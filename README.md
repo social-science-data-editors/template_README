@@ -35,6 +35,7 @@ The README should specify the instructions allowing a replicator to produce the 
 
 We note that a good replication package uses a minimal number of automated scripts, with no manual interventions required unless absolutely unavoidable. 
 
+
 ## License
 
 ![CC-BY-NC](assets/cc-by-nc.png) The README is under a CC-BY-NC license. Usage by commercial entities is allowed, reselling it is not.
