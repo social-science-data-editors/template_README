@@ -14,7 +14,7 @@ The template README is available in a variety of formats:
 
 ## Description
 
-The typical README in social science journals serves multiple purposes, which we describe in the sections below. The template README contains sections for all these elements, though some elements may be moved to the main manuscript for some journals.
+The typical README in social science journals serves the purpose of guiding a reader through the available material and a route to replicating the results in the research paper, including the description of the origins of data and/or description of programs.  As such, a good README file should first provide a brief overview of the available material and a brief guide as to how to proceed from beginning to end, before then diving into the specifics.
 
 ### Data and Code Availability Statement
 
