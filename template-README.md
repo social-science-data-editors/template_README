@@ -72,7 +72,7 @@ Computational requirements
 
 > INSTRUCTIONS: In general, the specific computer code used to generate the results in the article will be within the repository that also contains this README. However, other computational requirements - shared libraries or code packages, required software, specific computing hardware - may be important, and is always useful, for the goal of replication. Some example text follows. 
 
-> INSTRUCTIONS: We strongly suggest providing setup scripts that install/set up the environment. Sample scripts for [Stata](https://github.com/gslab-econ/template/blob/master/config/config_stata.do),  [R](https://github.com/labordynamicsinstitute/paper-template/blob/master/programs/global-libraries.R), and [Python](https://pip.readthedocs.io/en/1.1/requirements.html) are easy to set up and implement.
+> INSTRUCTIONS: We strongly suggest providing setup scripts that install/set up the environment. Sample scripts for [Stata](https://github.com/gslab-econ/template/blob/master/config/config_stata.do),  [R](https://github.com/labordynamicsinstitute/paper-template/blob/master/programs/global-libraries.R),  [Python](https://pip.readthedocs.io/en/1.1/requirements.html), [Julia](https://github.com/labordynamicsinstitute/paper-template/blob/master/programs/packages.jl) are easy to set up and implement.
 
 ### Software Requirements
 
@@ -100,6 +100,7 @@ Portions of the code use Powershell scripting, which may require Windows 10 or h
 
 
 ### Memory and Runtime Requirements
+
 > INSTRUCTIONS: Memory and compute-time requirements may also be relevant or even critical. Some example text follows. It may be useful to break this out by Table/Figure/section of processing. For instance, some estimation routines might run for weeks, but data prep and creating figures might only take a few minutes.
 
 The code was last run on a **4-core Intel-based laptop with MacOS version 10.14.4**. 
@@ -107,6 +108,14 @@ The code was last run on a **4-core Intel-based laptop with MacOS version 10.14.
 Portions of the code were last run on a **32-core Intel server with 1024 GB of RAM, 12 TB of fast local storage**. Computation took 734 hours. 
 
 Portions of the code were last run on a **12-node AWS R3 cluster, consuming 20,000 core-hours**.  
+
+> INSTRUCTIONS: Identifiying hardware and OS can be obtained through a variety of ways:
+> Some of these details can be found as follows:
+>
+> - (Windows) by right-clicking on "This PC" in File Explorer and choosing "Properties"
+> - (Mac) Apple-menu > "About this Mac"
+> - (Linux) see code in [tools/linux-system-info.sh](https://github.com/AEADataEditor/replication-template/blob/master/tools/linux-system-info.sh)`
+
 
 ## Description of programs
 
