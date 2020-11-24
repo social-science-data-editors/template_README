@@ -53,9 +53,10 @@ jobs:
       uses: docker://pandoc/latex:2.9
       with:
           args: "_README.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
-    - name: Add files
+    - name: Add and remove files
       run: |
         git add templates/README.*
+        git rm -r .github
     - name: push files
       uses: EndBug/add-and-commit@v4
       with: 
@@ -63,8 +64,3 @@ jobs:
         ref: 'gh-pages'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    # - name: upload
-    #   uses: actions/upload-artifact@master
-    #   with:
-    #       name: templates
-    #       path: templates
