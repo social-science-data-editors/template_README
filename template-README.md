@@ -159,10 +159,13 @@ Approximate time needed to reproduce the analyses on a standard (CURRENT YEAR) d
 - [ ] <10 minutes
 - [ ] 10-60 minutes
 - [ ] 1-8 hours
-- [ ] > 8 hours
+- [ ] 8-24 hours
+- [ ] 1-3 days
+- [ ] 3-14 days
+- [ ] > 14 days
 - [ ] Not feasible to run on a desktop machine, as described below.
 
-####
+#### Details
 
 The code was last run on a **4-core Intel-based laptop with MacOS version 10.14.4**. 
 
@@ -218,6 +221,11 @@ Instructions to Replicators
    - If running programs individually, note that ORDER IS IMPORTANT. 
    - The programs were last run top to bottom on July 4, 2019.
 - `programs/03_appendix/master-appendix.do`. The programs were last run top to bottom on July 4, 2019.
+- Figure 1: The figure can be reproduced using the data provided in the folder “2_data/data_map”, and ArcGIS Desktop (Version 10.7.1) by following these (manual) instructions:
+  - Create a new map document in ArcGIS ArcMap, browse to the folder
+“2_data/data_map” in the “Catalog”, with files  "provinceborders.shp", "lakes.shp", and "cities.shp". 
+  - Drop the files listed above onto the new map, creating three separate layers. Order them with "lakes" in the top layer and "cities" in the bottom layer.
+  - Right-click on the cities file, in properties choose the variable "health"... (more details)
 
 List of tables and programs
 ---------------------------
