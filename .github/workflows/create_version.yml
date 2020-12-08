@@ -36,6 +36,6 @@ jobs:
            user_email: 'lars.vilhuber@cornell.edu'
            publish_branch: releases 
            keep_files: true
-           tag_name: "${{ github.event.inputs.version }}"
-           tag_message: "Release ${{ github.event.inputs.version }}"
-           commit_message: "Creating release ${{ github.event.inputs.version }} by ${{ github.event.inputs.name }}"
+           tag_name: "v${{ github.event.inputs.version }}"
+           tag_message: "Release v${{ github.event.inputs.version }}"
+           commit_message: "Creating release v${{ github.event.inputs.version }} by ${{ github.event.inputs.name }}"
