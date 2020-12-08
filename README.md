@@ -2,6 +2,10 @@
 
 The template README provided on this website is in a form that follows best practices as defined by a number of data editors at social science journals. A full list of endorsers is listed in [Endorsers](Endorsers.md).
 
+## Versions
+
+The most recent version is available at [https://social-science-data-editors.github.io/template_README/][https://social-science-data-editors.github.io/template_README/]. Specific releases can be found at [https://github.com/social-science-data-editors/template_README/releases](https://github.com/social-science-data-editors/template_README/releases). 
+
 ## Formats
 
 The template README is available in a variety of formats:
@@ -10,7 +14,7 @@ The template README is available in a variety of formats:
 - [LaTeX](templates/README.tex)
 - [Word](templates/README.docx)
 - [PDF](templates/README.pdf)
-- [Markdown](https://github.com/social-science-data-editors/template_README/blob/master/template-README.md)
+- [Markdown](https://github.com/social-science-data-editors/template_README/blob/releases/README.md)
 
 ## Description
 
