@@ -12,3 +12,4 @@ Authors should continue to consult the journal websites to check if the README i
 - Review of Economic Studies, Miklós Koren ([Data Editor](https://restud.github.io/data-editor/)), July 2020
 - Economic Journal, Joan Llull (Data Editor), July 2020
 - Canadian Journal of Economics, Peter Morrow (Data Editor), July 2020
+- Canadian Journal of Economics, Marie Connolly (Data Editor), December 2020
