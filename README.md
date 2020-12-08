@@ -4,7 +4,7 @@ The template README provided on this website is in a form that follows best prac
 
 ## Versions
 
-The most recent version is available at [https://social-science-data-editors.github.io/template_README/][https://social-science-data-editors.github.io/template_README/]. Specific releases can be found at [https://github.com/social-science-data-editors/template_README/releases](https://github.com/social-science-data-editors/template_README/releases). 
+The most recent version is available at [https://social-science-data-editors.github.io/template_README/](https://social-science-data-editors.github.io/template_README/). Specific releases can be found at [https://github.com/social-science-data-editors/template_README/releases](https://github.com/social-science-data-editors/template_README/releases). 
 
 ## Formats
 
