@@ -20,6 +20,7 @@ on:
 
 jobs:
   set-version:
+    name: Create a version and release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -38,23 +39,3 @@ jobs:
            tag_name: "v${{ github.event.inputs.version }}"
            tag_message: "Release v${{ github.event.inputs.version }}"
            commit_message: "Creating release v${{ github.event.inputs.version }} by ${{ github.event.inputs.name }}"
-  release:
-    name: Create Release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          ref: releases
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Template README in Social Sciences ${{ github.ref }}
-          body: |
-            For the most recent version and additional information, see https://social-science-data-editors.github.io/template_README/.
-          draft: false
-          prerelease: true
