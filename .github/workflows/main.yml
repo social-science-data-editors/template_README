@@ -55,6 +55,7 @@ jobs:
           args: "_README.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
     - name: Add and remove files
       run: |
+        cp template-README.md templates/README.md
         git add templates/README.*
         git rm -r .github
     - name: push files

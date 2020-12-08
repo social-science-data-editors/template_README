@@ -1,0 +1,41 @@
+name: Create version
+on: 
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Your name'
+        # Default value if no value is explicitly provided
+        default: 'Github'
+        # Input has to be provided for the workflow to run
+        required: true
+      version:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Version to create (must start with a number, e.g. 0.1-rc1 or 0.2 - the v will be prepended!)'
+        # Default value if no value is explicitly provided
+        default: '0.0'
+        # Input has to be provided for the workflow to run
+        required: true
+
+jobs:
+  set-version:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skipci]')"
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2 
+        with:
+          ref: gh-pages
+      - name: Create release
+        uses: peaceiris/actions-gh-pages@v3.7.0-8
+        with:
+           github_token: ${{ secrets.GITHUB_TOKEN }}
+           publish_dir: templates
+           user_name: 'Github Action Bot'
+           user_email: 'lars.vilhuber@cornell.edu'
+           publish_branch: releases 
+           keep_files: true
+           tag_name: "${{ github.event.inputs.version }}"
+           tag_message: "Release ${{ github.event.inputs.version }}"
+           commit_message: "Creating release ${{ github.event.inputs.version }} by ${{ github.event.inputs.name }}"
