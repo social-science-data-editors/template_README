@@ -1,3 +1,8 @@
+
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4319999.svg)](https://doi.org/10.5281/zenodo.4319999)
+
+
 # A template README for social science replication packages
 
 The template README provided on this website is in a form that follows best practices as defined by a number of data editors at social science journals. A full list of endorsers is listed in [Endorsers](Endorsers.md).
