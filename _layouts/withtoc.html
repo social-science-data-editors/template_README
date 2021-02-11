@@ -51,9 +51,14 @@
 
       </section>
       <footer>
-	<p><em>Authors:</em> {{} site.github.contributors }}</p>
-        {% if site.github.is_project_page %}
-        <p>This project is maintained by <a href="{{ site.github.repository_url }}">{{ site.github.repository_nwo }}</a></p>
+        <p><em>Authors:</em> 
+          {% if page.contributors %}
+            {% for c in page.contributors %}
+              {{ c }}
+            {% endfor %}
+          {% endif %}</p>
+          {% if site.github.is_project_page %}
+          <p>This project is maintained at <a href="{{ site.github.repository_url }}">{{ site.github.repository_nwo }}</a></p>
         {% endif %}
         <p><em><a href="Disclaimer.html">Disclaimer</a></em> 
         </p>

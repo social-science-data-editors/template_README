@@ -1,4 +1,5 @@
 ---
+permalink: index.html
 contributors:
   - Lars Vilhuber
   - Miklos Kóren

@@ -1,3 +1,12 @@
+---
+contributors:
+  - Lars Vilhuber
+  - Miklos Kóren
+  - Joan Llull
+  - Marie Connolly
+  - Peter Morrow
+---
+
 # Endorsements
 
 The following journals, via their respective responsable editors (typically a Data Editor) have endorsed this README. 
