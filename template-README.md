@@ -1,3 +1,12 @@
+---
+contributors:
+  - Lars Vilhuber
+  - Miklos Kóren
+  - Joan Llull
+  - Marie Connolly
+  - Peter Morrow
+---
+
 # Template README and Guidance
 
 > INSTRUCTIONS: This README suggests structure and content that have been approved by various journals, see [Endorsers](Endorsers.md). It is available as [Markdown/txt](https://github.com/social-science-data-editors/template_README/blob/master/template-README.md), [Word](templates/README.docx), [LaTeX](templates/README.tex), and [PDF](templates/README.pdf). In practice, there are many variations and complications, and authors should feel free to adapt to their needs. All instructions can (should) be removed from the final README (in Markdown, remove lines starting with `> INSTRUCTIONS`). Please ensure that a PDF is submitted in addition to the chosen native format. 
