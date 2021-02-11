@@ -1,4 +1,11 @@
-
+---
+contributors:
+  - Lars Vilhuber
+  - Miklos Kóren
+  - Joan Llull
+  - Marie Connolly
+  - Peter Morrow
+---
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4319999.svg)](https://doi.org/10.5281/zenodo.4319999)
 
