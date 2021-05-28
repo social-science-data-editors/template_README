@@ -16,7 +16,7 @@ Overview
 
 > INSTRUCTIONS: The typical README in social science journals serves the purpose of guiding a reader through the available material and a route to replicating the results in the research paper. Start by providing a brief overview of the available material and a brief guide as to how to proceed from beginning to end.
 
-Example: The code in this replication package constructs the analysis file from the three data sources (Ruggles et al, 2018; Inglehart et al, 2019; BEA, 2016) using Stata and Julia. Two master files run all of the code to generate the data for the 15 figures and 3 tables in the paper. The replicator should expect the code to run for about 14 hours.
+Example: The code in this replication package constructs the analysis file from the three data sources (Ruggles et al, 2018; Inglehart et al, 2019; BEA, 2016) using Stata and Julia. Two main files run all of the code to generate the data for the 15 figures and 3 tables in the paper. The replicator should expect the code to run for about 14 hours.
 
 Data Availability and Provenance Statements
 ----------------------------
@@ -196,10 +196,10 @@ Description of programs/code
 
 > INSTRUCTIONS: Give a high-level overview of the program files and their purpose. Remove redundant/ obsolete files from the Replication archive.
 
-- Programs in `programs/01_dataprep` will extract and reformat all datasets referenced above. The file `programs/01_dataprep/master.do` will run them all.
-- Programs in `programs/02_analysis` generate all tables and figures in the main body of the article. The program `programs/02_analysis/master.do` will run them all. Each program called from `master.do` identifies the table or figure it creates (e.g., `05_table5.do`).  Output files are called appropriate names (`table5.tex`, `figure12.png`) and should be easy to correlate with the manuscript.
-- Programs in `programs/03_appendix` will generate all tables and figures  in the online appendix. The program `programs/03_appendix/master-appendix.do` will run them all. 
-- Ado files have been stored in `programs/ado` and the `master.do` files set the ADO directories appropriately. 
+- Programs in `programs/01_dataprep` will extract and reformat all datasets referenced above. The file `programs/01_dataprep/main.do` will run them all.
+- Programs in `programs/02_analysis` generate all tables and figures in the main body of the article. The program `programs/02_analysis/main.do` will run them all. Each program called from `main.do` identifies the table or figure it creates (e.g., `05_table5.do`).  Output files are called appropriate names (`table5.tex`, `figure12.png`) and should be easy to correlate with the manuscript.
+- Programs in `programs/03_appendix` will generate all tables and figures  in the online appendix. The program `programs/03_appendix/main-appendix.do` will run them all. 
+- Ado files have been stored in `programs/ado` and the `main.do` files set the ADO directories appropriately. 
 - The program `programs/00_setup.do` will populate the `programs/ado` directory with updated ado packages, but for purposes of exact reproduction, this is not needed. The file `programs/00_setup.log` identifies the versions as they were last updated.
 - The program `programs/config.do` contains parameters used by all programs, including a random seed. Note that the random seed is set once for each of the two sequences (in `02_analysis` and `03_appendix`). If running in any order other than the one outlined below, your results may differ.
 
@@ -212,12 +212,12 @@ The code is licensed under a MIT/BSD/GPL/Creative Commons license. See [LICENSE.
 Instructions to Replicators
 ---------------------------
 
-> INSTRUCTIONS: The first two sections ensure that the data and software necessary to conduct the replication have been collected. This section then describes a human-readable instruction to conduct the replication. This may be simple, or may involve many complicated steps. It should be a simple list, no excess prose. Strict linear sequence. If more than 4-5 manual steps, please wrap a master program/Makefile around them, in logical sequences. Examples follow.
+> INSTRUCTIONS: The first two sections ensure that the data and software necessary to conduct the replication have been collected. This section then describes a human-readable instruction to conduct the replication. This may be simple, or may involve many complicated steps. It should be a simple list, no excess prose. Strict linear sequence. If more than 4-5 manual steps, please wrap a main program/Makefile around them, in logical sequences. Examples follow.
 
 - Edit `programs/config.do` to adjust the default path
 - Run `programs/00_setup.do` once on a new system to set up the working environment. 
 - Download the data files referenced above. Each should be stored in the prepared subdirectories of `data/`, in the format that you download them in. Do not unzip. Scripts are provided in each directory to download the public-use files. Confidential data files requested as part of your FSRDC project will appear in the `/data` folder. No further action is needed on the replicator's part.
-- Run `programs/01_master.do` to run all steps in sequence.
+- Run `programs/01_main.do` to run all steps in sequence.
 
 ### Details
 
@@ -226,11 +226,11 @@ Instructions to Replicators
 - `programs/01_dataprep`:  
    - These programs were last run at various times in 2018. 
    - Order does not matter, all programs can be run in parallel, if needed. 
-   - A `programs/01_dataprep/master.do` will run them all in sequence, which should take about 2 hours.
-- `programs/02_analysis/master.do`.
+   - A `programs/01_dataprep/main.do` will run them all in sequence, which should take about 2 hours.
+- `programs/02_analysis/main.do`.
    - If running programs individually, note that ORDER IS IMPORTANT. 
    - The programs were last run top to bottom on July 4, 2019.
-- `programs/03_appendix/master-appendix.do`. The programs were last run top to bottom on July 4, 2019.
+- `programs/03_appendix/main-appendix.do`. The programs were last run top to bottom on July 4, 2019.
 - Figure 1: The figure can be reproduced using the data provided in the folder “2_data/data_map”, and ArcGIS Desktop (Version 10.7.1) by following these (manual) instructions:
   - Create a new map document in ArcGIS ArcMap, browse to the folder
 “2_data/data_map” in the “Catalog”, with files  "provinceborders.shp", "lakes.shp", and "cities.shp". 
