@@ -52,7 +52,7 @@ Data Availability and Provenance Statements
 
 > INSTRUCTIONS: Most data repositories provide for a default license, but do not impose a specific license. Authors should actively select a license. This should be provided in a LICENSE.txt file, separately from the README, possibly combined with the license for any code. Some data may be subject to inherited license requirements, i.e., the data provider may allow for redistribution only if the data is licensed under specific rules - authors should check with their data providers. For instance, a data use license might require that users - the current author, but also any subsequent users - cite the data provider. Licensing can be complex. Some non-legal guidance may be found [here](https://social-science-data-editors.github.io/guidance/Licensing_guidance.html).
 
-*Example:* The code is licensed under a Creative Commons/CC-BY-NC license. See LICENSE.txt for details.
+*Example:* The data is licensed under a Creative Commons/CC-BY-NC license. See LICENSE.txt for details.
 
 
 ### Summary of Availability
