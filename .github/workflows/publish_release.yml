@@ -18,4 +18,4 @@ jobs:
           body: |
             "For the most recent version and additional information, see https://social-science-data-editors.github.io/template_README/."
           draft: false
-          prerelease: ${{ github.event.inputs.prerelease }}
+          prerelease: false
