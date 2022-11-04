@@ -34,8 +34,9 @@ on:
         - "false" 
       confirmation:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'This will also post to Zenodo - are you sure? (yes/no)'
+        description: 'This will also post to Zenodo - are you sure? '
         # Default value if no value is explicitly provided
+        required: true
         type: boolean
 name: Create Release
 
