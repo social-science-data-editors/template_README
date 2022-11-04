@@ -52,34 +52,27 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: release-candidate
+
+      - name: Prepare tag
+        id: prepare_tag
+        run: |
+          echo "vVERSION=v-${{ inputs.version }}" >> "${GITHUB_OUTPUT}"
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
       - name: push files
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token:  ${{ secrets.GITHUB_TOKEN }}
           user_name: 'Github Action Bot'
           user_email: 'lars.vilhuber@cornell.edu'
+          tag_name: ${{ steps.prepare_tag.outputs.vVERSION }}
+          tag_message: 'Template README in Social Sciences ${{ steps.prepare_tag.outputs.vVERSION }}'
           publish_dir: templates/
           publish_branch: releases
           keep_files: false
-          commit_message: '[noaction] Creating release v${{ github.event.inputs.version }}'
-  publish-pages:
-    name: Publish release
-    runs-on: ubuntu-latest
-    if: ${{ inputs.confirmation  }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          ref: releases
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: v${{ github.event.inputs.version }}
-          release_name: Template README in Social Sciences v${{ github.event.inputs.version }}
-          body: |
-            ${{ github.event.inputs.message }}
-          draft: false
-          prerelease: ${{ github.event.inputs.prerelease }}
+          commit_message: 'Creating release ${{ steps.prepare_tag.outputs.vVERSION }}'
+  
