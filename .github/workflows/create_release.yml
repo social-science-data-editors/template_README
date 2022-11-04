@@ -27,20 +27,28 @@ on:
         # Friendly description to be shown in the UI instead of 'name'
         description: 'Is this a pre-release? (true/false)'
         # Default value if no value is explicitly provided
-        default: 'true'
-        # Input has to be provided for the workflow to run
-        required: true
+        default: 'false'
+        type: choice
+        options:
+        - true
+        - false 
+      confirmation:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'This will also post to Zenodo - are you sure? (yes/no)'
+        # Default value if no value is explicitly provided
+        type: boolean
 name: Create Release
 
 jobs:
   build:
     name: Create Release
     runs-on: ubuntu-latest
+    if: ${{ input.confirmation  }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          ref: releases
+          ref: release-candidate
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
