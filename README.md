@@ -25,11 +25,17 @@ The most recent version is available at [https://social-science-data-editors.git
 
 The template README is available in a variety of formats:
 
+### Release candidates (which may be the latest version)
+
 - [HTML](template-README.md) (best for reading)
 - [LaTeX](templates/README.tex)
 - [Word](templates/README.docx)
 - [PDF](templates/README.pdf)
-- [Markdown](https://github.com/social-science-data-editors/template_README/blob/releases/README.md)
+- [Markdown](https://github.com/social-science-data-editors/template_README/blob/release-candiate/templates/README.md)
+
+### Releases
+
+Download specific releases from the [Releases page](https://github.com/social-science-data-editors/template_README/releases). The HTML version is not available in the Releases.
 
 ## Description
 

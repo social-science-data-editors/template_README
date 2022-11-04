@@ -30,8 +30,8 @@ on:
         default: 'false'
         type: choice
         options:
-        - true
-        - false 
+        - "true"
+        - "false" 
       confirmation:
         # Friendly description to be shown in the UI instead of 'name'
         description: 'This will also post to Zenodo - are you sure? (yes/no)'
@@ -40,15 +40,36 @@ on:
 name: Create Release
 
 jobs:
-  build:
-    name: Create Release
+  create-relase:
+    name: Actually Create Release
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
     if: ${{ input.confirmation  }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
           ref: release-candidate
+      - name: push files
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token:  ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'Github Action Bot'
+          user_email: 'lars.vilhuber@cornell.edu'
+          publish_dir: templates
+          publish_branch: releases
+          keep_files: false
+          commit_message: '[noaction] Creating release ${{ input.version }}'
+  publish-pages:
+    name: Publish release
+    runs-on: ubuntu-latest
+    if: ${{ input.confirmation  }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: releases
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
