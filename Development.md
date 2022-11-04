@@ -35,7 +35,7 @@ Pull request are typically reviewed and authorized by one or more members. This 
 
 ### `development -> release-candidate`
 
-Merged pull requests and pushes to `development` automatically create release candidates in the appropriately named branch. This happens through Github Actions (`[main.yml](https://github.com/social-science-data-editors/template_README/blob/development/.github/workflows/main.yml]`). 
+Merged pull requests and pushes to `development` automatically create release candidates in the appropriately named branch. This happens through Github Actions ([`main.yml`](https://github.com/social-science-data-editors/template_README/blob/development/.github/workflows/main.yml]). 
 
 The web page always displays the latest release candidate.
 
@@ -43,7 +43,7 @@ Release candidates are usually not numbered, but could receive a tag (e.g., `v2.
 
 ### `release-candidate -> releases`
 
-This is a manual process, using Github Actions. Authorized users will go to `[Create Release](https://github.com/social-science-data-editors/template_README/actions/workflows/create_release.yml)` and run the Workflow.
+This is a manual process, using Github Actions. Authorized users will go to [`Create Release`](https://github.com/social-science-data-editors/template_README/actions/workflows/create_release.yml) and run the Workflow.
 
 When properly configured, the creation of the release also triggers the creation of a Zenodo version with DOI. 
 
