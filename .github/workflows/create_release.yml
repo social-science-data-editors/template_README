@@ -45,7 +45,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
-    if: ${{ github.event.inputs.confirmation  }}
+    if: ${{ inputs.confirmation  }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -57,14 +57,14 @@ jobs:
           github_token:  ${{ secrets.GITHUB_TOKEN }}
           user_name: 'Github Action Bot'
           user_email: 'lars.vilhuber@cornell.edu'
-          publish_dir: templates
+          publish_dir: templates/
           publish_branch: releases
           keep_files: false
-          commit_message: '[noaction] Creating release ${{ github.event.inputs.version }}'
+          commit_message: '[noaction] Creating release v${{ github.event.inputs.version }}'
   publish-pages:
     name: Publish release
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.confirmation  }}
+    if: ${{ inputs.confirmation  }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
