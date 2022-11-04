@@ -61,6 +61,6 @@ jobs:
       uses: EndBug/add-and-commit@v9
       with: 
         message: '[noaction] Generated derived files'
-        push: 'origin release-candidate --force'
+        push: 'origin release-candidate --set-upstream --force'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
