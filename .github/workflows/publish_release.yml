@@ -1,0 +1,21 @@
+name: Publish release
+
+on:
+  push:
+    tags:
+      - "v*.*"
+
+jobs:
+  publish-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Template README in Social Sciences 
+          body: |
+            "For the most recent version and additional information, see https://social-science-data-editors.github.io/template_README/."
+          draft: false
+          prerelease: ${{ github.event.inputs.prerelease }}

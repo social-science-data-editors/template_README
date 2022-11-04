@@ -56,7 +56,7 @@ jobs:
       - name: Prepare tag
         id: prepare_tag
         run: |
-          echo "vVERSION=v-${{ inputs.version }}" >> "${GITHUB_OUTPUT}"
+          echo "vVERSION=v${{ inputs.version }}" >> "${GITHUB_OUTPUT}"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
