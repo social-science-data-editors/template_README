@@ -57,12 +57,11 @@ jobs:
       run: |
         cp template-README.md templates/README.md
         git add templates/README.*
-        git rm -r .github
     - name: push files
-      uses: EndBug/add-and-commit@v4
+      uses: EndBug/add-and-commit@v9
       with: 
         message: '[noaction] Generated derived files'
-        ref: 'gh-pages'
-        push: 'origin gh-pages --force'
+        ref: 'release-candidate'
+        push: 'origin release-candidate --force'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
