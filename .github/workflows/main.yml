@@ -63,6 +63,7 @@ jobs:
          github_token:  ${{ secrets.GITHUB_TOKEN }}
          user_name: 'Github Action Bot'
          user_email: 'lars.vilhuber@cornell.edu'
+         publish_dir: .
          publish_branch: release-candidate
          keep_files: false
          commit_message: '[noaction] Generated derived files'
