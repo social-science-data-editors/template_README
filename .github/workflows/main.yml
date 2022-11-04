@@ -65,7 +65,7 @@ jobs:
          user_email: 'lars.vilhuber@cornell.edu'
          publish_dir: .
          publish_branch: release-candidate
-         keep_files: false
+         keep_files: true
          commit_message: '[noaction] Generated derived files'
 
         
