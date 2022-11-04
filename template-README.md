@@ -32,7 +32,9 @@ Example: The code in this replication package constructs the analysis file from 
 >   - For lab experiments specifically, a description of any pilot sessions/studies, and computer programs, configuration files, or scripts used to run the experiment. 
 >   - For surveys, the whole questionnaire (code or images/PDF) including survey logic if not linear, interviewer instructions, enumeration lists, sample selection criteria.
 >
->  The information should describe ALL data used, regardless of whether they are provided as part of the replication archive or not, and regardless of size or scope. For instance, if using GDP deflators, the source of the deflators (e.g. at the national statistical office) should also be listed here. If any of this information has been provided in a pre-registration, then a link to that registration may (partially) suffice.
+>  The information should describe ALL data used, regardless of whether they are provided as part of the replication archive or not, and regardless of size or scope. The DAS should provide enough information that a replicator can obtain the data from the original source, even if the file is provided. 
+>
+> For instance, if using GDP deflators, the source of the deflators (e.g. at the national statistical office) should also be listed here. If any of this information has been provided in a pre-registration, then a link to that registration may (partially) suffice.
 >
 > DAS can be complex and varied. Examples are provided [here](https://social-science-data-editors.github.io/guidance/Requested_information_dcas.html), and below.
 >
@@ -48,7 +50,9 @@ Example: The code in this replication package constructs the analysis file from 
 
 ### (Optional, but recommended) License for Data
 
-> INSTRUCTIONS: Most data repositories provide for a default license, but do not impose a specific license. Authors should actively select a license. This should be provided in a LICENSE.txt file, separately from the README, possibly combined with the license for any code. Some data may be subject to inherited license requirements, i.e., the data provider may allow for redistribution only if the data is licensed under specific rules - authors should check with their data providers. For instance, a data use license might require that users - the current author, but also any subsequent users - cite the data provider. Licensing can be complex. Some non-legal guidance may be found [here](https://social-science-data-editors.github.io/guidance/Licensing_guidance.html).
+> INSTRUCTIONS: Most data repositories provide for a default license, but do not impose a specific license. Authors should actively select a license. This should be provided in a LICENSE.txt file, separately from the README, possibly combined with the license for any code. Some data may be subject to inherited license requirements, i.e., the data provider may allow for redistribution only if the data is licensed under specific rules - authors should check with their data providers. For instance, a data use license might require that users - the current author, but also any subsequent users - cite the data provider. Licensing can be complex. Some non-legal guidance may be found [here](https://social-science-data-editors.github.io/guidance/Licensing_guidance.html). For multiple licenses within a data package, the `LICENSE.txt` file might contain the concatenation of all the licenses that apply (for instance, a custom license for one file, plus a CC-BY license for another file).
+>
+> NOTE: In many cases, it is not up to the creator of the replication package to simply define a license, a license may be *sticky* and be defined by the original data creator.
 
 *Example:* The data are licensed under a Creative Commons/CC-BY-NC license. See LICENSE.txt for details.
 
@@ -65,7 +69,18 @@ Example: The code in this replication package constructs the analysis file from 
 > 
 > - Describe the format (open formats preferred, but some software-specific formats OK if open-source readers available): `.dta`, `.xlsx`, `.csv`, `netCDF`, etc.
 > - Provide a data dictionairy, either as part of the archive (list the file name), or at a URL (list the URL). Some formats are self-describing *if* they have the requisite information (e.g., `.dta` should have both variable and value labels).
+> - List availability within the package
+> - Use proper bibliographic references in addition to a verbose description (and provide a bibliography at the end of the README, expanding those references)
+>
+> A summary in tabular form can be useful:
 
+| Data.Name  | Data.Files | Location | Provided | Citation |
+| -- | -- | -- | -- | -- | 
+| “Current Population Survey 2018” | cepr_march_2018.dta | data/ | TRUE | CEPR (2018) |
+| “Provincial Administration Reports” | coast_simplepoint2.csv; rivers_simplepoint2.csv; RAIL_dummies.dta; railways_Dissolve_Simplify_point2.csv | Data/maps/ | TRUE | Administration (2017) |
+| “2017 SAT scores” | Not available | data/to_clean/ | FALSE | College Board (2020) |
+
+where the `Data.Name` column is then expanded in the subsequent paragraphs, and `CEPR (2018)` is resolved in the References section of the README.
 
 ### Example for public use data collected by the authors
 
