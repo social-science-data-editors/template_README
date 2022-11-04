@@ -174,7 +174,8 @@ Approximate time needed to reproduce the analyses on a standard (CURRENT YEAR) d
 
 - [ ] <10 minutes
 - [ ] 10-60 minutes
-- [ ] 1-8 hours
+- [ ] 1-2 hours
+- [ ] 2-8 hours
 - [ ] 8-24 hours
 - [ ] 1-3 days
 - [ ] 3-14 days
