@@ -1,0 +1,5 @@
+theme: jekyll-theme-minimal
+title: A template README for social science replication packages.
+description: The template README provided on this website is in a form that follows best practices as defined by a number of data editors at social science journals. 
+logo: https://social-science-data-editors.github.io/assets/ssde-logo.jpeg
+show_downloads: false
