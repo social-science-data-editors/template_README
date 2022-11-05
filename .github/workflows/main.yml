@@ -62,7 +62,7 @@ jobs:
       uses: devops-infra/action-commit-push@v0.9.1
       with:
         github_token: "${{ secrets.GITHUB_TOKEN }}"
-        add_timestamp: true
+        add_timestamp: false
         commit_prefix: "[AUTO]"
         commit_message: "Generated derived files"
         force: true
