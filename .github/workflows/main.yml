@@ -54,17 +54,15 @@ jobs:
       uses: docker://pandoc/latex:2.9
       with:
           args: "_README.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
+    - name: Set up git config
+      run: |
+          # setup the username and email. 
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
     - name: Add and remove files
       run: |
         cp template-README.md templates/README.md
         git add templates/README.*
-    - name: push files
-      uses: devops-infra/action-commit-push@v0.9.1
-      with:
-        github_token: "${{ secrets.GITHUB_TOKEN }}"
-        add_timestamp: false
-        commit_prefix: "[AUTO]"
-        commit_message: "Generated derived files"
-        force: true
-        target_branch: release-candidate
+        git commit -m "Adding derived files"
+        git push origin release-candidate --force
         
