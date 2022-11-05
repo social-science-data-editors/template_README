@@ -64,5 +64,6 @@ jobs:
         cp template-README.md templates/README.md
         git add templates/README.*
         git commit -m "Adding derived files"
+        git checkout -b release-candidate
         git push origin release-candidate --force
         
