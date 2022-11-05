@@ -92,7 +92,7 @@ proceed from beginning to end.
 
 Example: The code in this replication package constructs the analysis
 file from the three data sources (Ruggles et al, 2018; Inglehart et al,
-2019; BEA, 2016) using Stata and Julia. Two master files run all of the
+2019; BEA, 2016) using Stata and Julia. Two main files run all of the
 code to generate the data for the 15 figures and 3 tables in the paper.
 The replicator should expect the code to run for about 14 hours.
 
@@ -145,11 +145,14 @@ selection criteria.
 
 The information should describe ALL data used, regardless of whether
 they are provided as part of the replication archive or not, and
-regardless of size or scope. For instance, if using GDP deflators, the
-source of the deflators (e.g.~at the national statistical office) should
-also be listed here. If any of this information has been provided in a
-pre-registration, then a link to that registration may (partially)
-suffice.
+regardless of size or scope. The DAS should provide enough information
+that a replicator can obtain the data from the original source, even if
+the file is provided.
+
+For instance, if using GDP deflators, the source of the deflators
+(e.g.~at the national statistical office) should also be listed here. If
+any of this information has been provided in a pre-registration, then a
+link to that registration may (partially) suffice.
 
 DAS can be complex and varied. Examples are provided
 \href{https://social-science-data-editors.github.io/guidance/Requested_information_dcas.html}{here},
@@ -167,7 +170,7 @@ Rather, they augment them. Depending on journal requirements and to some
 extent stylistic considerations, data citations should appear in the
 main article, in an appendix, or in the README. However, data citations
 only provide information \textbf{where} to find the data, not
-\textbf{how to access} that data. Thus, DAS augment data citations by
+\textbf{how to access} those data. Thus, DAS augment data citations by
 going into additional detail that allow a researcher to assess cost,
 complexity, and availability over time of the data used by the original
 author.
@@ -181,6 +184,12 @@ author.
 \item[$\square$]
   I certify that the author(s) of the manuscript have legitimate access
   to and permission to use the data used in this manuscript.
+\item[$\square$]
+  I certify that the author(s) of the manuscript have documented
+  permission to redistribute/publish the data contained within this
+  replication package. Appropriate permission are documented in the
+  \href{https://social-science-data-editors.github.io/template_README/LICENSE.txt}{LICENSE.txt}
+  file.
 \end{itemize}
 
 \hypertarget{optional-but-recommended-license-for-data}{%
@@ -199,11 +208,18 @@ instance, a data use license might require that users - the current
 author, but also any subsequent users - cite the data provider.
 Licensing can be complex. Some non-legal guidance may be found
 \href{https://social-science-data-editors.github.io/guidance/Licensing_guidance.html}{here}.
+For multiple licenses within a data package, the \texttt{LICENSE.txt}
+file might contain the concatenation of all the licenses that apply (for
+instance, a custom license for one file, plus a CC-BY license for
+another file).
+
+NOTE: In many cases, it is not up to the creator of the replication
+package to simply define a license, a license may be \emph{sticky} and
+be defined by the original data creator.
 \end{quote}
 
-The code is licensed under a Creative Commons/CC-BY-NC/CC0 license. See
-\href{https://social-science-data-editors.github.io/template_README/LICENSE.txt}{LICENSE.txt}
-for details.
+\emph{Example:} The data are licensed under a Creative Commons/CC-BY-NC
+license. See LICENSE.txt for details.
 
 \hypertarget{summary-of-availability}{%
 \subsubsection{Summary of Availability}\label{summary-of-availability}}
@@ -239,8 +255,72 @@ appropriate,
   file name), or at a URL (list the URL). Some formats are
   self-describing \emph{if} they have the requisite information (e.g.,
   \texttt{.dta} should have both variable and value labels).
+\item
+  List availability within the package
+\item
+  Use proper bibliographic references in addition to a verbose
+  description (and provide a bibliography at the end of the README,
+  expanding those references)
 \end{itemize}
+
+A summary in tabular form can be useful:
 \end{quote}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\begin{minipage}[b]{0.17\columnwidth}\raggedright
+Data.Name\strut
+\end{minipage} & \begin{minipage}[b]{0.17\columnwidth}\raggedright
+Data.Files\strut
+\end{minipage} & \begin{minipage}[b]{0.17\columnwidth}\raggedright
+Location\strut
+\end{minipage} & \begin{minipage}[b]{0.17\columnwidth}\raggedright
+Provided\strut
+\end{minipage} & \begin{minipage}[b]{0.17\columnwidth}\raggedright
+Citation\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.17\columnwidth}\raggedright
+``Current Population Survey 2018''\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+cepr\_march\_2018.dta\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+data/\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+TRUE\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+CEPR (2018)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.17\columnwidth}\raggedright
+``Provincial Administration Reports''\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+coast\_simplepoint2.csv; rivers\_simplepoint2.csv; RAIL\_dummies.dta;
+railways\_Dissolve\_Simplify\_point2.csv\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+Data/maps/\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+TRUE\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+Administration (2017)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.17\columnwidth}\raggedright
+``2017 SAT scores''\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+Not available\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+data/to\_clean/\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+FALSE\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\raggedright
+College Board (2020)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+where the \texttt{Data.Name} column is then expanded in the subsequent
+paragraphs, and \texttt{CEPR\ (2018)} is resolved in the References
+section of the README.
 
 \hypertarget{example-for-public-use-data-collected-by-the-authors}{%
 \subsubsection{Example for public use data collected by the
@@ -382,6 +462,33 @@ include derived/analysis data. Every file should be described. This can
 be provided as a Excel/CSV table, or in the table below.
 \end{quote}
 
+\begin{quote}
+INSTRUCTIONS: While it is often most convenient to provide data in the
+native format of the software used to analyze and process the data, not
+all formats are ``open'' and can be read by other (free) software. Data
+should at a minimum be provided in formats that can be read by
+open-source software (R, Python, others), and ideally be provided in
+non-proprietary, archival-friendly formats.
+\end{quote}
+
+\begin{quote}
+INSTRUCTIONS: All data files should be fully documented:
+variables/columns should have labels (long-form meaningful names), and
+values should be explained. This might mean generating a codebook,
+pointing at a public codebook, or providing data in (non-proprietary)
+formats that allow for a rich description. This is in particular
+important for data that is not distributable.
+\end{quote}
+
+\begin{quote}
+INSTRUCTIONS: Some journals require, and it is considered good practice,
+to provide synthetic or simulated data that has some of the key
+characteristics of the restricted-access data which are not provided.
+The level of fidelity may vary - it may be useful for debugging only, or
+it should allow to assess the key characteristics of the
+statistical/econometric procedure or the main conclusions of the paper.
+\end{quote}
+
 \begin{longtable}[]{@{}llll@{}}
 \toprule
 \begin{minipage}[b]{0.26\columnwidth}\raggedright
@@ -444,9 +551,11 @@ INSTRUCTIONS: We strongly suggest providing setup scripts that
 install/set up the environment. Sample scripts for
 \href{https://github.com/gslab-econ/template/blob/master/config/config_stata.do}{Stata},
 \href{https://github.com/labordynamicsinstitute/paper-template/blob/master/programs/global-libraries.R}{R},
-\href{https://pip.readthedocs.io/en/1.1/requirements.html}{Python},
 \href{https://github.com/labordynamicsinstitute/paper-template/blob/master/programs/packages.jl}{Julia}
-are easy to set up and implement.
+are easy to set up and implement. Specific software may have more
+sophisticated tools:
+\href{https://pip.pypa.io/en/stable/user_guide/\#ensuring-repeatability}{Python},
+\href{https://julia.quantecon.org/more_julia/tools_editors.html\#Package-Environments}{Julia}.
 \end{quote}
 
 \hypertarget{software-requirements}{%
@@ -489,9 +598,9 @@ the version \emph{you} used.
     the file ``\texttt{requirements.txt}'' lists these dependencies,
     please run ``\texttt{pip\ install\ -r\ requirements.txt}'' as the
     first step. See
-    \url{https://pip.readthedocs.io/en/1.1/requirements.html} for
-    further instructions on using the ``\texttt{requirements.txt}''
-    file.
+    \url{https://pip.pypa.io/en/stable/user_guide/\#ensuring-repeatability}
+    for further instructions on creating and using the
+    ``\texttt{requirements.txt}'' file.
   \end{itemize}
 \item
   Intel Fortran Compiler version 20200104
@@ -518,6 +627,28 @@ Portions of the code use bash scripting, which may require Linux.
 Portions of the code use Powershell scripting, which may require Windows
 10 or higher.
 
+\hypertarget{controlled-randomness}{%
+\subsubsection{Controlled Randomness}\label{controlled-randomness}}
+
+\begin{quote}
+INSTRUCTIONS: Some estimation code uses random numbers, almost always
+provided by pseudorandom number generators (PRNGs). For reproducibility
+purposes, these should be provided with a deterministic seed, so that
+the sequence of numbers provided is the same for the original author and
+any replicators. While this is not always possible, it is a requirement
+by many journals' policies. The seed should be set once, and not use a
+time-stamp. If using parallel processing, special care needs to be
+taken. If using multiple programs in sequence, care must be taken on how
+to call these programs, ideally from a main program, so that the
+sequence is not altered.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  Random seed is set at line \_\_\_\_\_ of program \_\_\_\_\_\_
+\end{itemize}
+
 \hypertarget{memory-and-runtime-requirements}{%
 \subsubsection{Memory and Runtime
 Requirements}\label{memory-and-runtime-requirements}}
@@ -543,7 +674,9 @@ YEAR) desktop machine:
 \item[$\square$]
   10-60 minutes
 \item[$\square$]
-  1-8 hours
+  1-2 hours
+\item[$\square$]
+  2-8 hours
 \item[$\square$]
   8-24 hours
 \item[$\square$]
@@ -600,22 +733,22 @@ purpose. Remove redundant/ obsolete files from the Replication archive.
 \item
   Programs in \texttt{programs/01\_dataprep} will extract and reformat
   all datasets referenced above. The file
-  \texttt{programs/01\_dataprep/master.do} will run them all.
+  \texttt{programs/01\_dataprep/main.do} will run them all.
 \item
   Programs in \texttt{programs/02\_analysis} generate all tables and
   figures in the main body of the article. The program
-  \texttt{programs/02\_analysis/master.do} will run them all. Each
-  program called from \texttt{master.do} identifies the table or figure
-  it creates (e.g., \texttt{05\_table5.do}). Output files are called
-  appropriate names (\texttt{table5.tex}, \texttt{figure12.png}) and
-  should be easy to correlate with the manuscript.
+  \texttt{programs/02\_analysis/main.do} will run them all. Each program
+  called from \texttt{main.do} identifies the table or figure it creates
+  (e.g., \texttt{05\_table5.do}). Output files are called appropriate
+  names (\texttt{table5.tex}, \texttt{figure12.png}) and should be easy
+  to correlate with the manuscript.
 \item
   Programs in \texttt{programs/03\_appendix} will generate all tables
   and figures in the online appendix. The program
-  \texttt{programs/03\_appendix/master-appendix.do} will run them all.
+  \texttt{programs/03\_appendix/main-appendix.do} will run them all.
 \item
   Ado files have been stored in \texttt{programs/ado} and the
-  \texttt{master.do} files set the ADO directories appropriately.
+  \texttt{main.do} files set the ADO directories appropriately.
 \item
   The program \texttt{programs/00\_setup.do} will populate the
   \texttt{programs/ado} directory with updated ado packages, but for
@@ -648,7 +781,7 @@ non-legal guidance may be found
 \href{https://social-science-data-editors.github.io/guidance/Licensing_guidance.html}{here}.
 \end{quote}
 
-The code is licensed under a MIT/BSD/GPL/Creative Commons license. See
+The code is licensed under a MIT/BSD/GPL {[}choose one!{]} license. See
 \href{https://social-science-data-editors.github.io/template_README/LICENSE.txt}{LICENSE.txt}
 for details.
 
@@ -662,7 +795,7 @@ necessary to conduct the replication have been collected. This section
 then describes a human-readable instruction to conduct the replication.
 This may be simple, or may involve many complicated steps. It should be
 a simple list, no excess prose. Strict linear sequence. If more than 4-5
-manual steps, please wrap a master program/Makefile around them, in
+manual steps, please wrap a main program/Makefile around them, in
 logical sequences. Examples follow.
 \end{quote}
 
@@ -681,7 +814,7 @@ logical sequences. Examples follow.
   part of your FSRDC project will appear in the \texttt{/data} folder.
   No further action is needed on the replicator's part.
 \item
-  Run \texttt{programs/01\_master.do} to run all steps in sequence.
+  Run \texttt{programs/01\_main.do} to run all steps in sequence.
 \end{itemize}
 
 \hypertarget{details-1}{%
@@ -711,11 +844,11 @@ logical sequences. Examples follow.
     Order does not matter, all programs can be run in parallel, if
     needed.
   \item
-    A \texttt{programs/01\_dataprep/master.do} will run them all in
+    A \texttt{programs/01\_dataprep/main.do} will run them all in
     sequence, which should take about 2 hours.
   \end{itemize}
 \item
-  \texttt{programs/02\_analysis/master.do}.
+  \texttt{programs/02\_analysis/main.do}.
 
   \begin{itemize}
   \tightlist
@@ -725,7 +858,7 @@ logical sequences. Examples follow.
     The programs were last run top to bottom on July 4, 2019.
   \end{itemize}
 \item
-  \texttt{programs/03\_appendix/master-appendix.do}. The programs were
+  \texttt{programs/03\_appendix/main-appendix.do}. The programs were
   last run top to bottom on July 4, 2019.
 \item
   Figure 1: The figure can be reproduced using the data provided in the
