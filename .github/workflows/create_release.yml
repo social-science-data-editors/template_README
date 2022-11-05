@@ -57,6 +57,7 @@ jobs:
         id: prepare_tag
         run: |
           echo "vVERSION=v${{ inputs.version }}" >> "${GITHUB_OUTPUT}"
+          cp CITATION.cff templates/
 
       - name: push files
         uses: peaceiris/actions-gh-pages@v3
