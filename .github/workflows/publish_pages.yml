@@ -26,7 +26,6 @@ jobs:
       run: |
         rm -rf .github
         rm -rf _scripts
-        rm -rf _config.yml
     - name: push files
       uses: peaceiris/actions-gh-pages@v3
       with:
