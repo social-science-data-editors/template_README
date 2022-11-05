@@ -36,6 +36,7 @@ jobs:
          publish_dir: .
          publish_branch: gh-pages
          keep_files: false
+         enable_jekyll: true
          commit_message: '[noaction] Updating web pages'
 
         
