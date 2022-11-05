@@ -1,0 +1,668 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{template-readme-and-guidance}{%
+\section{Template README and
+Guidance}\label{template-readme-and-guidance}}
+
+\begin{quote}
+INSTRUCTIONS: This README suggests structure and content that have been
+approved by various journals, see \href{Endorsers.md}{Endorsers}. It is
+available as
+\href{https://github.com/social-science-data-editors/template_README/blob/master/template-README.md}{Markdown/txt},
+\href{templates/README.docx}{Word}, \href{templates/README.tex}{LaTeX},
+and \href{templates/README.pdf}{PDF}. In practice, there are many
+variations and complications, and authors should feel free to adapt to
+their needs. All instructions can (should) be removed from the final
+README (in Markdown, remove lines starting with
+\texttt{\textgreater{}\ INSTRUCTIONS}). Please ensure that a PDF is
+submitted in addition to the chosen native format.
+\end{quote}
+
+\hypertarget{data-availability-and-provenance-statements}{%
+\subsection{Data Availability and Provenance
+Statements}\label{data-availability-and-provenance-statements}}
+
+\begin{quote}
+INSTRUCTIONS: Every README should contain a description of the origin
+(provenance), location and accessibility of the data used in the
+article. These descriptions are generally referred to as ``Data
+Availability Statements'' (DAS). This should include ALL data,
+regardless of whether they are provided as part of the replication
+archive or not, and regardless of size or scope. For instance, if using
+GDP deflators, the source of the deflators (e.g.~at the national
+statistical office) should also be listed here. DAS can be complex and
+varied. Examples are provided
+\href{Requested_information_dcas.md}{here}, and below.
+\end{quote}
+
+\begin{quote}
+INSTRUCTIONS: If providing a datafile per data source, list them here;
+if providing combined/derived datafiles, list them separately after the
+DAS.
+\end{quote}
+
+\begin{quote}
+INSTRUCTIONS: DAS do not replace Data Citations (see
+\href{Data_citation_guidance.md}{Guidance}). Rather, they augment them.
+Depending on journal requirements and to some extent stylistic
+considerations, data citations should appear in the main article, in an
+appendix, or in the README. However, data citations only provide
+information \textbf{where} to find the data, not \textbf{how to access}
+that data. Thus, DAS augment data citations by going into additional
+detail that allow a researcher to assess cost, complexity, and
+availability over time of the data used by the original author.
+\end{quote}
+
+\hypertarget{example-for-public-use-data-collected-by-the-authors}{%
+\subsubsection{Example for public use data collected by the
+authors}\label{example-for-public-use-data-collected-by-the-authors}}
+
+\begin{quote}
+The {[}DATA TYPE{]} data used to support the findings of this study have
+been deposited in the {[}NAME{]} repository ({[}DOI or OTHER PERSISTENT
+IDENTIFIER{]}).
+{[}\href{https://www.hindawi.com/research.data/\#statement.templates}{1}{]}.
+The data were collected by the authors, and are available under a
+Creative Commons Non-commercial license.
+\end{quote}
+
+\hypertarget{example-for-public-use-data-sourced-from-elsewhere-and-provided}{%
+\subsubsection{Example for public use data sourced from elsewhere and
+provided}\label{example-for-public-use-data-sourced-from-elsewhere-and-provided}}
+
+\begin{quote}
+Data on National Income and Product Accounts (NIPA) were downloaded from
+the U.S. Bureau of Economic Analysis (BEA, 2016). We use Table 30. Data
+can be downloaded from https://apps.bea.gov/regional/downloadzip.cfm,
+under ``Personal Income (State and Local)'', select CAINC30: Economic
+Profile by County, then download. Data can also be directly downloaded
+using https://apps.bea.gov/regional/zip/CAINC30.zip. A copy of the data
+is provided as part of this archive. The data are in the public domain.
+\end{quote}
+
+Datafile: \texttt{CAINC30\_\_ALL\_AREAS\_1969\_2018.csv}
+
+\hypertarget{example-for-public-use-data-with-required-registration-and-provided-extract}{%
+\subsubsection{Example for public use data with required registration
+and provided
+extract}\label{example-for-public-use-data-with-required-registration-and-provided-extract}}
+
+\begin{quote}
+The paper uses IPUMS Terra data (Ruggles et al, 2018). IPUMS-Terra does
+not allow for redistribution, except for the purpose of replication
+archives. Permissions as per https://terra.ipums.org/citation have been
+obtained, and are documented within the ``data/IPUMS-terra'' folder.
+\textgreater{} Note: the reference to ``Ruggles et al, 2018'' would be
+resolved in the Reference section of this README, \textbf{and} in the
+main manuscript.
+\end{quote}
+
+Datafile: \texttt{data/raw/ipums\_terra\_2018.dta}
+
+\hypertarget{example-for-free-use-data-with-required-registration-extract-not-provided}{%
+\subsubsection{Example for free use data with required registration,
+extract not
+provided}\label{example-for-free-use-data-with-required-registration-extract-not-provided}}
+
+\begin{quote}
+The paper uses data from the World Values Survey Wave 6 (Inglehart et
+al, 2019). Data is subject to a redistribution restriction, but can be
+freely downloaded from
+http://www.worldvaluessurvey.org/WVSDocumentationWV6.jsp. Choose
+\texttt{WV6\_Data\_Stata\_v20180912}, fill out the registration form,
+including a brief description of the project, and agree to the
+conditions of use. Note: ``the data files themselves are not
+redistributed'' and other conditions. Save the file in the directory
+\texttt{data/raw}.
+\end{quote}
+
+\begin{quote}
+\begin{quote}
+Note: the reference to ``Inglehart et al, 2018'' would be resolved in
+the Reference section of this README, \textbf{and} in the main
+manuscript.
+\end{quote}
+\end{quote}
+
+Datafile: \texttt{data/raw/WV6\_Data\_Stata\_v20180912.dta} (not
+provided)
+
+\hypertarget{example-for-confidential-data}{%
+\subsubsection{Example for confidential
+data}\label{example-for-confidential-data}}
+
+\begin{quote}
+INSTRUCTIONS: Citing and describing confidential data, in particular
+when it does not have a regular distribution channel or online landing
+page, can be tricky. A citation can be crafted
+(\href{FAQ.html\#data-citation-without-online-link}{see guidance}), and
+the DAS should describe how to access, whom to contact (including the
+role of the particular person, should that person retire), and other
+relevant information, such as required citizenship status or cost.
+\end{quote}
+
+\begin{quote}
+The data for this project (DESE, 2019) are confidential, but may be
+obtained with Data Use Agreements with the Massachusetts Department of
+Elementary and Secondary Education (DESE). Researchers interested in
+access to the data may contact {[}NAME{]} at {[}EMAIL{]}, also see
+www.doe.mass.edu/research/contact.html. It can take some months to
+negotiate data use agreements and gain access to the data. The author
+will assist with any reasonable replication attempts for two years
+following publication.
+\end{quote}
+
+\hypertarget{example-for-confidential-census-bureau-data}{%
+\subsubsection{Example for confidential Census Bureau
+data}\label{example-for-confidential-census-bureau-data}}
+
+\begin{quote}
+All the results in the paper use confidential microdata from the U.S.
+Census Bureau. To gain access to the Census microdata, follow the
+directions here on how to write a proposal for access to the data via a
+Federal Statistical Research Data Center:
+https://www.census.gov/ces/rdcresearch/howtoapply.html. You must request
+the following datasets in your proposal: 1. Longitudinal Business
+Database (LBD), 2002 and 2007 2. Foreign Trade Database -- Import (IMP),
+2002 and 2007 {[}\ldots{]}
+\end{quote}
+
+(adapted from \href{https://doi.org/10.1093/restud/rdw057}{Fort (2016)})
+
+\hypertarget{example-for-preliminary-code-during-the-editorial-process}{%
+\subsubsection{Example for preliminary code during the editorial
+process}\label{example-for-preliminary-code-during-the-editorial-process}}
+
+\begin{quote}
+Code for data cleaning and analysis is provided as part of the
+replication package. It is available at
+https://dropbox.com/link/to/code/XYZ123ABC for review. It will be
+uploaded to the {[}JOURNAL REPOSITORY{]} once the paper has been
+conditionally accepted.
+\end{quote}
+
+\hypertarget{dataset-list}{%
+\subsection{Dataset list}\label{dataset-list}}
+
+\begin{quote}
+INSTRUCTIONS: In some cases, authors will provide one dataset (file) per
+data source, and the code to combine them. In others, in particular when
+data access might be restrictive, the replication package may only
+include derived/analysis data. Every file should be described. This can
+be provided as a Excel/CSV table, or in the table below.
+\end{quote}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+\begin{minipage}[b]{0.26\columnwidth}\raggedright
+Data file\strut
+\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\raggedright
+Source\strut
+\end{minipage} & \begin{minipage}[b]{0.23\columnwidth}\raggedright
+Notes\strut
+\end{minipage} & \begin{minipage}[b]{0.21\columnwidth}\raggedright
+Provided\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.26\columnwidth}\raggedright
+\texttt{data/raw/lbd.dta}\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+LBD\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+Confidential\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+No\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.26\columnwidth}\raggedright
+\texttt{data/raw/terra.dta}\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+IPUMS Terra\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+As per terms of use\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+Yes\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.26\columnwidth}\raggedright
+\texttt{data/derived/regression\_input.dta}\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+All listed\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+Combines multiple data sources, serves as input for Table 2, 3 and
+Figure 5.\strut
+\end{minipage} & \begin{minipage}[t]{0.21\columnwidth}\raggedright
+Yes\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{computational-requirements}{%
+\subsection{Computational
+requirements}\label{computational-requirements}}
+
+\begin{quote}
+INSTRUCTIONS: In general, the specific computer code used to generate
+the results in the article will be within the repository that also
+contains this README. However, other computational requirements - shared
+libraries or code packages, required software, specific computing
+hardware - may be important, and is always useful, for the goal of
+replication. Some example text follows.
+\end{quote}
+
+\begin{quote}
+INSTRUCTIONS: We strongly suggest providing setup scripts that
+install/set up the environment. Sample scripts for
+\href{https://github.com/gslab-econ/template/blob/master/config/config_stata.do}{Stata},
+\href{https://github.com/labordynamicsinstitute/paper-template/blob/master/programs/global-libraries.R}{R},
+and \href{https://pip.readthedocs.io/en/1.1/requirements.html}{Python}
+are easy to set up and implement.
+\end{quote}
+
+\hypertarget{software-requirements}{%
+\subsubsection{Software Requirements}\label{software-requirements}}
+
+\begin{quote}
+INSTRUCTIONS: List all of the software requirements, up to and including
+any operating system requirements, for the entire set of code. It is
+suggested to distribute most dependencies together with the replication
+package if allowed, in particular if sourced from unversioned code
+repositories, Github repos, and personal webpages.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Stata (code was last run with version 15)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{estout} (as of 2018-05-12)
+  \item
+    \texttt{rdrobust} (as of 2019-01-05)
+  \item
+    the program ``\texttt{0\_setup.do}'' will install all dependencies
+    locally, and should be run once.
+  \end{itemize}
+\item
+  Python 3.6.4
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{pandas} 0.24.2
+  \item
+    \texttt{numpy} 1.16.4
+  \item
+    the file ``\texttt{requirements.txt}'' lists these dependencies,
+    please run ``\texttt{pip\ install\ -r\ requirements.txt}'' as the
+    first step. See
+    \url{https://pip.readthedocs.io/en/1.1/requirements.html} for
+    further instructions on using the ``\texttt{requirements.txt}''
+    file.
+  \end{itemize}
+\item
+  Intel Fortran Compiler version 20200104
+\item
+  Matlab (code was run with Matlab Release 2018a)
+\item
+  R 3.4.3
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{tidyr} (0.8.3)
+  \item
+    \texttt{rdrobust} (0.99.4)
+  \item
+    the file ``\texttt{0\_setup.R}'' will install all dependencies
+    (latest version), and should be run once prior to running other
+    programs.
+  \end{itemize}
+\end{itemize}
+
+Portions of the code use bash scripting, which may require Linux.
+
+Portions of the code use Powershell scripting, which may require Windows
+10 or higher.
+
+\hypertarget{memory-and-runtime-requirements}{%
+\subsubsection{Memory and Runtime
+Requirements}\label{memory-and-runtime-requirements}}
+
+\begin{quote}
+INSTRUCTIONS: Memory and compute-time requirements may also be relevant
+or even critical. Some example text follows. It may be useful to break
+this out by Table/Figure/section of processing. For instance, some
+estimation routines might run for weeks, but data prep and creating
+figures might only take a few minutes.
+\end{quote}
+
+The code was last run on a \textbf{4-core Intel-based laptop with MacOS
+version 10.14.4}.
+
+Portions of the code were last run on a \textbf{32-core Intel server
+with 1024 GB of RAM, 12 TB of fast local storage}. Computation took 734
+hours.
+
+Portions of the code were last run on a \textbf{12-node AWS R3 cluster,
+consuming 20,000 core-hours}.
+
+\hypertarget{description-of-programs}{%
+\subsection{Description of programs}\label{description-of-programs}}
+
+\begin{quote}
+INSTRUCTIONS: Give a high-level overview of the program files and their
+purpose. Remove redundant/ obsolete files from the Replication archive.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Programs in \texttt{programs/01\_dataprep} will extract and reformat
+  all datasets referenced above. The file
+  \texttt{programs/01\_dataprep/master.do} will run them all.
+\item
+  Programs in \texttt{programs/02\_analysis} generate all tables and
+  figures in the main body of the article. The program
+  \texttt{programs/02\_analysis/master.do} will run them all. Each
+  program called from \texttt{master.do} identifies the table or figure
+  it creates (e.g., \texttt{05\_table5.do}). Output files are called
+  appropriate names (\texttt{table5.tex}, \texttt{figure12.png}) and
+  should be easy to correlate with the manuscript.
+\item
+  Programs in \texttt{programs/03\_appendix} will generate all tables
+  and figures in the online appendix. The program
+  \texttt{programs/03\_appendix/master-appendix.do} will run them all.
+\item
+  Ado files have been stored in \texttt{programs/ado} and the
+  \texttt{master.do} files set the ADO directories appropriately.
+\item
+  The program \texttt{programs/00\_setup.do} will populate the
+  \texttt{programs/ado} directory with updated ado packages, but for
+  purposes of exact reproduction, this is not needed. The file
+  \texttt{programs/00\_setup.log} identifies the versions as they were
+  last updated.
+\item
+  The program \texttt{programs/config.do} contains parameters used by
+  all programs, including a random seed. Note that the random seed is
+  set once for each of the two sequences (in \texttt{02\_analysis} and
+  \texttt{03\_appendix}). If running in any order other than the one
+  outlined below, your results may differ.
+\end{itemize}
+
+\hypertarget{instructions-to-replicators}{%
+\subsection{Instructions to
+Replicators}\label{instructions-to-replicators}}
+
+\begin{quote}
+INSTRUCTIONS: The first two sections ensure that the data and software
+necessary to conduct the replication have been collected. This section
+then describes a human-readable instruction to conduct the replication.
+This may be simple, or may involve many complicated steps. It should be
+a simple list, no excess prose. Strict linear sequence. If more than 4-5
+manual steps, please wrap a master program/Makefile around them, in
+logical sequences. Examples follow.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Edit \texttt{programs/config.do} to adjust the default path
+\item
+  Run \texttt{programs/00\_setup.do} once on a new system to set up the
+  working environment.
+\item
+  Download the data files referenced above. Each should be stored in the
+  prepared subdirectories of \texttt{data/}, in the format that you
+  download them in. Do not unzip. Scripts are provided in each directory
+  to download the public-use files. Confidential data files requested as
+  part of your FSRDC project will appear in the \texttt{/data} folder.
+  No further action is needed on the replicator's part.
+\item
+  Run \texttt{programs/01\_master.do} to run all steps in sequence.
+\end{itemize}
+
+\hypertarget{details}{%
+\subsubsection{Details}\label{details}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{programs/00\_setup.do}: will create all output directories,
+  install needed ado packages.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    If wishing to update the ado packages used by this archive, change
+    the parameter \texttt{update\_ado} to \texttt{yes}. However, this is
+    not needed to successfully reproduce the manuscript tables.
+  \end{itemize}
+\item
+  \texttt{programs/01\_dataprep}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    These programs were last run at various times in 2018.
+  \item
+    Order does not matter, all programs can be run in parallel, if
+    needed.
+  \item
+    A \texttt{programs/01\_dataprep/master.do} will run them all in
+    sequence, which should take about 2 hours.
+  \end{itemize}
+\item
+  \texttt{programs/02\_analysis/master.do}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    If running programs individually, note that ORDER IS IMPORTANT.
+  \item
+    The programs were last run top to bottom on July 4, 2019.
+  \end{itemize}
+\item
+  \texttt{programs/03\_appendix/master-appendix.do}. The programs were
+  last run top to bottom on July 4, 2019.
+\end{itemize}
+
+\hypertarget{list-of-tables-and-programs}{%
+\subsection{List of tables and
+programs}\label{list-of-tables-and-programs}}
+
+\begin{quote}
+INSTRUCTIONS: Your programs should clearly identify the tables and
+figures as they appear in the manuscript, by number. Sometimes, this may
+be obvious, e.g.~a program called ``\texttt{table1.do}'' generates a
+file called \texttt{table1.png}. Sometimes, mnemonics are used, and a
+mapping is necessary. In all circumstances, provide a list of tables and
+figures, identifying the program (and possibly the line number) where a
+figure is created.
+\end{quote}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\begin{minipage}[b]{0.13\columnwidth}\raggedright
+Figure/Table \#\strut
+\end{minipage} & \begin{minipage}[b]{0.18\columnwidth}\raggedright
+Program\strut
+\end{minipage} & \begin{minipage}[b]{0.09\columnwidth}\raggedright
+Line Number\strut
+\end{minipage} & \begin{minipage}[b]{0.23\columnwidth}\raggedright
+Output file\strut
+\end{minipage} & \begin{minipage}[b]{0.23\columnwidth}\raggedright
+Note\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.13\columnwidth}\raggedright
+Table 1\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+02\_analysis/table1.do\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+summarystats.csv\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright
+Table 2\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+02\_analysis/table2and3.do\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+15\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+table2.csv\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright
+Table 3\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+02\_analysis/table2and3.do\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+145\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+table3.csv\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright
+Figure 1\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+n.a. (no data)\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+Source: Herodus (2011)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright
+Figure 2\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+02\_analysis/fig2.do\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+figure2.png\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright
+Figure 3\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+02\_analysis/fig3.do\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+figure-robustness.png\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\raggedright
+Requires confidential data\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{references}{%
+\subsection{References}\label{references}}
+
+\begin{quote}
+INSTRUCTIONS: As in any scientific manuscript, you should have proper
+references. For instance, in this sample README, we cited ``Ruggles et
+al, 2019'' and ``DESE, 2019'' in a Data Availability Statement. The
+reference should thus be listed here, in the style of your journal:
+\end{quote}
+
+Steven Ruggles, Steven M. Manson, Tracy A. Kugler, David A. Haynes II,
+David C. Van Riper, and Maryia Bakhtsiyarava. 2018. ``IPUMS Terra:
+Integrated Data on Population and Environment: Version 2
+{[}dataset{]}.'' Minneapolis, MN: \emph{Minnesota Population Center,
+IPUMS}. https://doi.org/10.18128/D090.V2
+
+Department of Elementary and Secondary Education (DESE), 2019. ``Student
+outcomes database {[}dataset{]}'' \emph{Massachusetts Department of
+Elementary and Secondary Education (DESE)}. Accessed January 15, 2019.
+
+U.S. Bureau of Economic Analysis. 2016. ``Table 30:''Economic Profile by
+County, 1969-2016.'' (accessed Sept 1, 2017).
+
+Inglehart, R., C. Haerpfer, A. Moreno, C. Welzel, K. Kizilova, J.
+Diez-Medrano, M. Lagos, P. Norris, E. Ponarin \& B. Puranen et
+al.~(eds.). 2014. World Values Survey: Round Six - Country-Pooled
+Datafile Version:
+http://www.worldvaluessurvey.org/WVSDocumentationWV6.jsp. Madrid: JD
+Systems Institute.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{acknowledgements}{%
+\subsection{Acknowledgements}\label{acknowledgements}}
+
+Some content on this page was copied from
+\href{https://www.hindawi.com/research.data/\#statement.templates}{Hindawi}.
+Other content was adapted from
+\href{https://doi.org/10.1093/restud/rdw057}{Fort (2016)}, Supplementary
+data, with the author's permission.
+
+\end{document}
