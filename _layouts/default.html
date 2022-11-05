@@ -40,6 +40,9 @@
       </header>
       <section>
 
+      {%if page.doi %}
+        <p><a href="https://doi.org/{{ page.doi }}"><img src="https://zenodo.org/badge/DOI/{{ page.doi }}.svg" alt="DOI" /></a></p>
+      {% endif %}
       {{ content }}
 
       </section>
@@ -56,7 +59,7 @@
         {% if site.github.is_project_page %}
         <p>This project is maintained at <a href="{{ site.github.repository_url }}">{{ site.github.repository_nwo }}</a></p>
         {% endif %}
-        <p><em><a href="Disclaimer.html">Disclaimer</a></em> 
+        <p><em><a href="/Disclaimer.html">Disclaimer</a></em> 
         </p>
         <!-- <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>-->
       </footer>
