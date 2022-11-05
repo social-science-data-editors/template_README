@@ -6,7 +6,8 @@ name: Pre-process files
 # events but only for the master branch
 on:
   push:
-    branches: [ development ]
+    branches: 
+      - development
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -66,6 +67,6 @@ jobs:
          publish_dir: .
          publish_branch: release-candidate
          keep_files: true
-         commit_message: '[noaction] Generated derived files'
+         commit_message: 'Generated derived files'
 
         
