@@ -31,7 +31,7 @@ The template README is available in a variety of formats:
 - [LaTeX](templates/README.tex)
 - [Word](templates/README.docx)
 - [PDF](templates/README.pdf)
-- [Markdown](https://github.com/social-science-data-editors/template_README/blob/release-candiate/templates/README.md)
+- [Markdown](https://github.com/social-science-data-editors/template_README/blob/release-candidate/templates/README.md)
 
 ### Releases
 
