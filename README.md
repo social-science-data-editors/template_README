@@ -8,7 +8,7 @@ contributors:
   - Peter Morrow
 ---
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4319999.svg)](https://doi.org/10.5281/zenodo.4319999)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7293838.svg)](https://doi.org/10.5281/zenodo.7293838)
 
 > This page displays the latest release-candidate. For official releases, see the [Releases](https://github.com/social-science-data-editors/template_README/releases) page or the above DOI.
 
