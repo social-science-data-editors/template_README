@@ -59,14 +59,12 @@ jobs:
         cp template-README.md templates/README.md
         git add templates/README.*
     - name: push files
-      uses: peaceiris/actions-gh-pages@v3
+      uses: devops-infra/action-commit-push@v0.9.1
       with:
-         github_token:  ${{ secrets.GITHUB_TOKEN }}
-         user_name: 'Github Action Bot'
-         user_email: 'lars.vilhuber@cornell.edu'
-         publish_dir: .
-         publish_branch: release-candidate
-         keep_files: true
-         commit_message: 'Generated derived files'
-
+        github_token: "${{ secrets.GITHUB_TOKEN }}"
+        add_timestamp: true
+        commit_prefix: "[AUTO]"
+        commit_message: "Generated derived files"
+        force: true
+        target_branch: release-candidate
         
