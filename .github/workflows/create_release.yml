@@ -58,11 +58,6 @@ jobs:
         run: |
           echo "vVERSION=v${{ inputs.version }}" >> "${GITHUB_OUTPUT}"
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
       - name: push files
         uses: peaceiris/actions-gh-pages@v3
         with:
