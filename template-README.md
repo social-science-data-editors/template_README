@@ -63,6 +63,10 @@ Example: The code in this replication package constructs the analysis file from 
 - [ ] Some data **cannot be made** publicly available.
 - [ ] **No data can be made** publicly available.
 
+> INSTRUCTIONS: If *No or some data can be made* **publicly** available, the journal may require that data be preserved for a specified time.
+
+- [ ] Confidential data used in this paper and not provided as part of the public replication package will be preserved for ___ years after publication, in accordance with journal policies. 
+
 ### Details on each Data Source
 
 > INSTRUCTIONS: For each data source, list the file that contains data from that source here; if providing combined/derived datafiles, list them separately after the DAS. For each data source or file, as appropriate, 
