@@ -184,9 +184,9 @@ Portions of the code use Powershell scripting, which may require Windows 10 or h
 - [ ] Random seed is set at line _____ of program ______
 - [ ] No Pseudo random generator is used in the analysis described here.
 
-### Memory and Runtime Requirements
+### Memory, Runtime, Storage Requirements
 
-> INSTRUCTIONS: Memory and compute-time requirements may also be relevant or even critical. Some example text follows. It may be useful to break this out by Table/Figure/section of processing. For instance, some estimation routines might run for weeks, but data prep and creating figures might only take a few minutes.
+> INSTRUCTIONS: Memory and compute-time requirements may also be relevant or even critical. Some example text follows. It may be useful to break this out by Table/Figure/section of processing. For instance, some estimation routines might run for weeks, but data prep and creating figures might only take a few minutes. You should also describe how much storage is required in addition to the space visible in the typical repository, for instance, because data will be unzipped, data downloaded, or temporary files written.
 
 #### Summary
 
@@ -200,22 +200,32 @@ Approximate time needed to reproduce the analyses on a standard (CURRENT YEAR) d
 - [ ] 1-3 days
 - [ ] 3-14 days
 - [ ] > 14 days
+
+Approximate storage space needed:
+
+- [ ] < 25 MBytes
+- [ ] 25 MB - 250 MB
+- [ ] 250 MB - 2 GB
+- [ ] 2 GB - 25 GB
+- [ ] 25 GB - 250 GB
+- [ ] > 250 GB
+
 - [ ] Not feasible to run on a desktop machine, as described below.
 
 #### Details
 
-The code was last run on a **4-core Intel-based laptop with MacOS version 10.14.4**. 
+The code was last run on a **4-core Intel-based laptop with MacOS version 10.14.4 with 200GB of free space**. 
 
-Portions of the code were last run on a **32-core Intel server with 1024 GB of RAM, 12 TB of fast local storage**. Computation took 734 hours. 
+Portions of the code were last run on a **32-core Intel server with 1024 GB of RAM, 12 TB of fast local storage**. Computation took **734 hours**. 
 
-Portions of the code were last run on a **12-node AWS R3 cluster, consuming 20,000 core-hours**.  
+Portions of the code were last run on a **12-node AWS R3 cluster, consuming 20,000 core-hours, with 2TB of attached storage**.  
 
 > INSTRUCTIONS: Identifiying hardware and OS can be obtained through a variety of ways:
 > Some of these details can be found as follows:
 >
 > - (Windows) by right-clicking on "This PC" in File Explorer and choosing "Properties"
 > - (Mac) Apple-menu > "About this Mac"
-> - (Linux) see code in [tools/linux-system-info.sh](https://github.com/AEADataEditor/replication-template/blob/master/tools/linux-system-info.sh)`
+> - (Linux) see code in [linux-system-info.sh](https://github.com/AEADataEditor/replication-template/blob/master/tools/linux-system-info.sh)`
 
 
 ## Description of programs/code
