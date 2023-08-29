@@ -1,7 +1,7 @@
 ---
 contributors:
   - Lars Vilhuber
-  - Miklos Kóren
+  - Miklós Koren
   - Joan Llull
   - Marie Connolly
   - Peter Morrow
