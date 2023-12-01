@@ -9,7 +9,7 @@ contributors:
 
 # Template README and Guidance
 
-> INSTRUCTIONS: This README suggests structure and content that have been approved by various journals, see [Endorsers](Endorsers.md). It is available as [Markdown/txt](https://github.com/social-science-data-editors/template_README/blob/master/template-README.md), [Word](templates/README.docx), [LaTeX](templates/README.tex), and [PDF](templates/README.pdf). In practice, there are many variations and complications, and authors should feel free to adapt to their needs. All instructions can (should) be removed from the final README (in Markdown, remove lines starting with `> INSTRUCTIONS`). Please ensure that a PDF is submitted in addition to the chosen native format. 
+> INSTRUCTIONS: This README suggests structure and content that have been approved by various journals, see [Endorsers](Endorsers.md). It is available as [Markdown/txt](https://github.com/social-science-data-editors/template_README/blob/master/template-README.md), [Word](templates/README.docx), [LaTeX](templates/README.tex), and [PDF](templates/README.pdf). In practice, there are many variations and complications, and authors should feel free to adapt to their needs. All instructions can (should) be removed from the final README (in Markdown, remove lines starting with `> INSTRUCTIONS`). Please ensure that a PDF is submitted in addition to the chosen native format. Please ensure that the README is called "README" plus the appropriate suffix, not some non-standard name. This helps replicators immediately locate the necessary document.
 
 ## Overview
 
@@ -62,6 +62,10 @@ Example: The code in this replication package constructs the analysis file from 
 - [ ] All data **are** publicly available.
 - [ ] Some data **cannot be made** publicly available.
 - [ ] **No data can be made** publicly available.
+
+> INSTRUCTIONS: If *No or some data can be made* **publicly** available, the journal may require that data be preserved for a specified time.
+
+- [ ] Confidential data used in this paper and not provided as part of the public replication package will be preserved for ___ years after publication, in accordance with journal policies. 
 
 ### Details on each Data Source
 
@@ -152,7 +156,9 @@ You must request the following datasets in your proposal:
 
 ### Software Requirements
 
-> INSTRUCTIONS: List all of the software requirements, up to and including any operating system requirements, for the entire set of code. It is suggested to distribute most dependencies together with the replication package if allowed, in particular if sourced from unversioned code repositories, Github repos, and personal webpages. In all cases, list the version *you* used. 
+> INSTRUCTIONS: List all of the software requirements, up to and including any operating system requirements, for the entire set of code. It is suggested to distribute most dependencies together with the replication package if allowed, in particular if sourced from unversioned code repositories, Github repos, and personal webpages. In all cases, list the version *you* used. All packages should be listed in human-readable form in this README, but should also be included in a setup or install script.
+
+- [ ] The replication package contains one or more programs to install all dependencies and set up the necessary directory structure. [HIGHLY RECOMMENDED]
 
 - Stata (code was last run with version 15)
   - `estout` (as of 2018-05-12)
@@ -175,13 +181,14 @@ Portions of the code use Powershell scripting, which may require Windows 10 or h
 
 ### Controlled Randomness
 
-> INSTRUCTIONS: Some estimation code uses random numbers, almost always provided by pseudorandom number generators (PRNGs). For reproducibility purposes, these should be provided with a deterministic seed, so that the sequence of numbers provided is the same for the original author and any replicators. While this is not always possible, it is a requirement by many journals' policies. The seed should be set once, and not use a time-stamp. If using parallel processing, special care needs to be taken. If using multiple programs in sequence, care must be taken on how to call these programs, ideally from a main program, so that the sequence is not altered.
+> INSTRUCTIONS: Some estimation code uses random numbers, almost always provided by pseudorandom number generators (PRNGs). For reproducibility purposes, these should be provided with a deterministic seed, so that the sequence of numbers provided is the same for the original author and any replicators. While this is not always possible, it is a requirement by many journals' policies. The seed should be set once, and not use a time-stamp. If using parallel processing, special care needs to be taken. If using multiple programs in sequence, care must be taken on how to call these programs, ideally from a main program, so that the sequence is not altered. If no PRNG is used, check the other box.
 
 - [ ] Random seed is set at line _____ of program ______
+- [ ] No Pseudo random generator is used in the analysis described here.
 
-### Memory and Runtime Requirements
+### Memory, Runtime, Storage Requirements
 
-> INSTRUCTIONS: Memory and compute-time requirements may also be relevant or even critical. Some example text follows. It may be useful to break this out by Table/Figure/section of processing. For instance, some estimation routines might run for weeks, but data prep and creating figures might only take a few minutes.
+> INSTRUCTIONS: Memory and compute-time requirements may also be relevant or even critical. Some example text follows. It may be useful to break this out by Table/Figure/section of processing. For instance, some estimation routines might run for weeks, but data prep and creating figures might only take a few minutes. You should also describe how much storage is required in addition to the space visible in the typical repository, for instance, because data will be unzipped, data downloaded, or temporary files written.
 
 #### Summary
 
@@ -195,22 +202,32 @@ Approximate time needed to reproduce the analyses on a standard (CURRENT YEAR) d
 - [ ] 1-3 days
 - [ ] 3-14 days
 - [ ] > 14 days
+
+Approximate storage space needed:
+
+- [ ] < 25 MBytes
+- [ ] 25 MB - 250 MB
+- [ ] 250 MB - 2 GB
+- [ ] 2 GB - 25 GB
+- [ ] 25 GB - 250 GB
+- [ ] > 250 GB
+
 - [ ] Not feasible to run on a desktop machine, as described below.
 
 #### Details
 
-The code was last run on a **4-core Intel-based laptop with MacOS version 10.14.4**. 
+The code was last run on a **4-core Intel-based laptop with MacOS version 10.14.4 with 200GB of free space**. 
 
-Portions of the code were last run on a **32-core Intel server with 1024 GB of RAM, 12 TB of fast local storage**. Computation took 734 hours. 
+Portions of the code were last run on a **32-core Intel server with 1024 GB of RAM, 12 TB of fast local storage**. Computation took **734 hours**. 
 
-Portions of the code were last run on a **12-node AWS R3 cluster, consuming 20,000 core-hours**.  
+Portions of the code were last run on a **12-node AWS R3 cluster, consuming 20,000 core-hours, with 2TB of attached storage**.  
 
 > INSTRUCTIONS: Identifiying hardware and OS can be obtained through a variety of ways:
 > Some of these details can be found as follows:
 >
 > - (Windows) by right-clicking on "This PC" in File Explorer and choosing "Properties"
 > - (Mac) Apple-menu > "About this Mac"
-> - (Linux) see code in [tools/linux-system-info.sh](https://github.com/AEADataEditor/replication-template/blob/master/tools/linux-system-info.sh)`
+> - (Linux) see code in [linux-system-info.sh](https://github.com/AEADataEditor/replication-template/blob/master/tools/linux-system-info.sh)`
 
 
 ## Description of programs/code
