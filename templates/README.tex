@@ -76,7 +76,10 @@ In practice, there are many variations and complications, and authors
 should feel free to adapt to their needs. All instructions can (should)
 be removed from the final README (in Markdown, remove lines starting
 with \texttt{\textgreater{}\ INSTRUCTIONS}). Please ensure that a PDF is
-submitted in addition to the chosen native format.
+submitted in addition to the chosen native format. Please ensure that
+the README is called ``README'' plus the appropriate suffix, not some
+non-standard name. This helps replicators immediately locate the
+necessary document.
 \end{quote}
 
 \hypertarget{overview}{%
@@ -165,7 +168,7 @@ due to sensitivity, IRB, proprietary clauses in the data use agreement,
 etc.
 
 NOTE: DAS do not replace Data Citations (see
-\href{https://social-science-data-editors.github.io/template_README/Data_citation_guidance.html}{Guidance}).
+\href{https://social-science-data-editors.github.io/guidance/Data_citation_guidance.html}{Guidance}).
 Rather, they augment them. Depending on journal requirements and to some
 extent stylistic considerations, data citations should appear in the
 main article, in an appendix, or in the README. However, data citations
@@ -232,6 +235,20 @@ license. See LICENSE.txt for details.
   Some data \textbf{cannot be made} publicly available.
 \item[$\square$]
   \textbf{No data can be made} publicly available.
+\end{itemize}
+
+\begin{quote}
+INSTRUCTIONS: If \emph{No or some data can be made} \textbf{publicly}
+available, the journal may require that data be preserved for a
+specified time.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  Confidential data used in this paper and not provided as part of the
+  public replication package will be preserved for \_\_\_ years after
+  publication, in accordance with journal policies.
 \end{itemize}
 
 \hypertarget{details-on-each-data-source}{%
@@ -567,11 +584,16 @@ any operating system requirements, for the entire set of code. It is
 suggested to distribute most dependencies together with the replication
 package if allowed, in particular if sourced from unversioned code
 repositories, Github repos, and personal webpages. In all cases, list
-the version \emph{you} used.
+the version \emph{you} used. All packages should be listed in
+human-readable form in this README, but should also be included in a
+setup or install script.
 \end{quote}
 
 \begin{itemize}
-\tightlist
+\item[$\square$]
+  The replication package contains one or more programs to install all
+  dependencies and set up the necessary directory structure. {[}HIGHLY
+  RECOMMENDED{]}
 \item
   Stata (code was last run with version 15)
 
@@ -640,25 +662,30 @@ by many journals' policies. The seed should be set once, and not use a
 time-stamp. If using parallel processing, special care needs to be
 taken. If using multiple programs in sequence, care must be taken on how
 to call these programs, ideally from a main program, so that the
-sequence is not altered.
+sequence is not altered. If no PRNG is used, check the other box.
 \end{quote}
 
 \begin{itemize}
 \tightlist
 \item[$\square$]
   Random seed is set at line \_\_\_\_\_ of program \_\_\_\_\_\_
+\item[$\square$]
+  No Pseudo random generator is used in the analysis described here.
 \end{itemize}
 
-\hypertarget{memory-and-runtime-requirements}{%
-\subsubsection{Memory and Runtime
-Requirements}\label{memory-and-runtime-requirements}}
+\hypertarget{memory-runtime-storage-requirements}{%
+\subsubsection{Memory, Runtime, Storage
+Requirements}\label{memory-runtime-storage-requirements}}
 
 \begin{quote}
 INSTRUCTIONS: Memory and compute-time requirements may also be relevant
 or even critical. Some example text follows. It may be useful to break
 this out by Table/Figure/section of processing. For instance, some
 estimation routines might run for weeks, but data prep and creating
-figures might only take a few minutes.
+figures might only take a few minutes. You should also describe how much
+storage is required in addition to the space visible in the typical
+repository, for instance, because data will be unzipped, data
+downloaded, or temporary files written.
 \end{quote}
 
 \hypertarget{summary}{%
@@ -685,6 +712,23 @@ YEAR) desktop machine:
   3-14 days
 \item[$\square$]
   \textgreater{} 14 days
+\end{itemize}
+
+Approximate storage space needed:
+
+\begin{itemize}
+\item[$\square$]
+  \textless{} 25 MBytes
+\item[$\square$]
+  25 MB - 250 MB
+\item[$\square$]
+  250 MB - 2 GB
+\item[$\square$]
+  2 GB - 25 GB
+\item[$\square$]
+  25 GB - 250 GB
+\item[$\square$]
+  \textgreater{} 250 GB
 \item[$\square$]
   Not feasible to run on a desktop machine, as described below.
 \end{itemize}
@@ -693,14 +737,14 @@ YEAR) desktop machine:
 \paragraph{Details}\label{details}}
 
 The code was last run on a \textbf{4-core Intel-based laptop with MacOS
-version 10.14.4}.
+version 10.14.4 with 200GB of free space}.
 
 Portions of the code were last run on a \textbf{32-core Intel server
-with 1024 GB of RAM, 12 TB of fast local storage}. Computation took 734
-hours.
+with 1024 GB of RAM, 12 TB of fast local storage}. Computation took
+\textbf{734 hours}.
 
 Portions of the code were last run on a \textbf{12-node AWS R3 cluster,
-consuming 20,000 core-hours}.
+consuming 20,000 core-hours, with 2TB of attached storage}.
 
 \begin{quote}
 INSTRUCTIONS: Identifiying hardware and OS can be obtained through a
@@ -715,7 +759,7 @@ variety of ways: Some of these details can be found as follows:
   (Mac) Apple-menu \textgreater{} ``About this Mac''
 \item
   (Linux) see code in
-  \href{https://github.com/AEADataEditor/replication-template/blob/master/tools/linux-system-info.sh}{tools/linux-system-info.sh}`
+  \href{https://github.com/AEADataEditor/replication-template/blob/master/tools/linux-system-info.sh}{linux-system-info.sh}`
 \end{itemize}
 \end{quote}
 

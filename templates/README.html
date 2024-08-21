@@ -20,7 +20,7 @@
 <body>
 <h1 id="template-readme-and-guidance">Template README and Guidance</h1>
 <blockquote>
-<p>INSTRUCTIONS: This README suggests structure and content that have been approved by various journals, see <a href="https://social-science-data-editors.github.io/template_README/Endorsers.html">Endorsers</a>. It is available as <a href="https://github.com/social-science-data-editors/template_README/blob/master/template-README.html">Markdown/txt</a>, <a href="https://social-science-data-editors.github.io/template_README/templates/README.docx">Word</a>, <a href="https://social-science-data-editors.github.io/template_README/templates/README.tex">LaTeX</a>, and <a href="https://social-science-data-editors.github.io/template_README/templates/README.pdf">PDF</a>. In practice, there are many variations and complications, and authors should feel free to adapt to their needs. All instructions can (should) be removed from the final README (in Markdown, remove lines starting with <code>&gt; INSTRUCTIONS</code>). Please ensure that a PDF is submitted in addition to the chosen native format.</p>
+<p>INSTRUCTIONS: This README suggests structure and content that have been approved by various journals, see <a href="https://social-science-data-editors.github.io/template_README/Endorsers.html">Endorsers</a>. It is available as <a href="https://github.com/social-science-data-editors/template_README/blob/master/template-README.html">Markdown/txt</a>, <a href="https://social-science-data-editors.github.io/template_README/templates/README.docx">Word</a>, <a href="https://social-science-data-editors.github.io/template_README/templates/README.tex">LaTeX</a>, and <a href="https://social-science-data-editors.github.io/template_README/templates/README.pdf">PDF</a>. In practice, there are many variations and complications, and authors should feel free to adapt to their needs. All instructions can (should) be removed from the final README (in Markdown, remove lines starting with <code>&gt; INSTRUCTIONS</code>). Please ensure that a PDF is submitted in addition to the chosen native format. Please ensure that the README is called “README” plus the appropriate suffix, not some non-standard name. This helps replicators immediately locate the necessary document.</p>
 </blockquote>
 <h2 id="overview">Overview</h2>
 <blockquote>
@@ -44,7 +44,7 @@ This paper does not involve analysis of external data (i.e., no data are used or
 <p>For instance, if using GDP deflators, the source of the deflators (e.g. at the national statistical office) should also be listed here. If any of this information has been provided in a pre-registration, then a link to that registration may (partially) suffice.</p>
 <p>DAS can be complex and varied. Examples are provided <a href="https://social-science-data-editors.github.io/guidance/Requested_information_dcas.html">here</a>, and below.</p>
 <p>Importantly, if providing the data as part of the replication package, authors should be clear about whether they have the <strong>rights</strong> to distribute the data. Data may be subject to distribution restrictions due to sensitivity, IRB, proprietary clauses in the data use agreement, etc.</p>
-<p>NOTE: DAS do not replace Data Citations (see <a href="https://social-science-data-editors.github.io/template_README/Data_citation_guidance.html">Guidance</a>). Rather, they augment them. Depending on journal requirements and to some extent stylistic considerations, data citations should appear in the main article, in an appendix, or in the README. However, data citations only provide information <strong>where</strong> to find the data, not <strong>how to access</strong> those data. Thus, DAS augment data citations by going into additional detail that allow a researcher to assess cost, complexity, and availability over time of the data used by the original author.</p>
+<p>NOTE: DAS do not replace Data Citations (see <a href="https://social-science-data-editors.github.io/guidance/Data_citation_guidance.html">Guidance</a>). Rather, they augment them. Depending on journal requirements and to some extent stylistic considerations, data citations should appear in the main article, in an appendix, or in the README. However, data citations only provide information <strong>where</strong> to find the data, not <strong>how to access</strong> those data. Thus, DAS augment data citations by going into additional detail that allow a researcher to assess cost, complexity, and availability over time of the data used by the original author.</p>
 </blockquote>
 <h3 id="statement-about-rights">Statement about Rights</h3>
 <ul class="task-list">
@@ -67,6 +67,13 @@ All data <strong>are</strong> publicly available.</li>
 Some data <strong>cannot be made</strong> publicly available.</li>
 <li><input type="checkbox" disabled="" />
 <strong>No data can be made</strong> publicly available.</li>
+</ul>
+<blockquote>
+<p>INSTRUCTIONS: If <em>No or some data can be made</em> <strong>publicly</strong> available, the journal may require that data be preserved for a specified time.</p>
+</blockquote>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Confidential data used in this paper and not provided as part of the public replication package will be preserved for ___ years after publication, in accordance with journal policies.</li>
 </ul>
 <h3 id="details-on-each-data-source">Details on each Data Source</h3>
 <blockquote>
@@ -219,24 +226,26 @@ Some data <strong>cannot be made</strong> publicly available.</li>
 </blockquote>
 <h3 id="software-requirements">Software Requirements</h3>
 <blockquote>
-<p>INSTRUCTIONS: List all of the software requirements, up to and including any operating system requirements, for the entire set of code. It is suggested to distribute most dependencies together with the replication package if allowed, in particular if sourced from unversioned code repositories, Github repos, and personal webpages. In all cases, list the version <em>you</em> used.</p>
+<p>INSTRUCTIONS: List all of the software requirements, up to and including any operating system requirements, for the entire set of code. It is suggested to distribute most dependencies together with the replication package if allowed, in particular if sourced from unversioned code repositories, Github repos, and personal webpages. In all cases, list the version <em>you</em> used. All packages should be listed in human-readable form in this README, but should also be included in a setup or install script.</p>
 </blockquote>
 <ul>
-<li>Stata (code was last run with version 15)
+<li><p><input type="checkbox" disabled="" />
+The replication package contains one or more programs to install all dependencies and set up the necessary directory structure. [HIGHLY RECOMMENDED]</p></li>
+<li><p>Stata (code was last run with version 15)</p>
 <ul>
 <li><code>estout</code> (as of 2018-05-12)</li>
 <li><code>rdrobust</code> (as of 2019-01-05)</li>
 <li>the program “<code>0_setup.do</code>” will install all dependencies locally, and should be run once.</li>
 </ul></li>
-<li>Python 3.6.4
+<li><p>Python 3.6.4</p>
 <ul>
 <li><code>pandas</code> 0.24.2</li>
 <li><code>numpy</code> 1.16.4</li>
 <li>the file “<code>requirements.txt</code>” lists these dependencies, please run “<code>pip install -r requirements.txt</code>” as the first step. See <a href="https://pip.pypa.io/en/stable/user_guide/#ensuring-repeatability">https://pip.pypa.io/en/stable/user_guide/#ensuring-repeatability</a> for further instructions on creating and using the “<code>requirements.txt</code>” file.</li>
 </ul></li>
-<li>Intel Fortran Compiler version 20200104</li>
-<li>Matlab (code was run with Matlab Release 2018a)</li>
-<li>R 3.4.3
+<li><p>Intel Fortran Compiler version 20200104</p></li>
+<li><p>Matlab (code was run with Matlab Release 2018a)</p></li>
+<li><p>R 3.4.3</p>
 <ul>
 <li><code>tidyr</code> (0.8.3)</li>
 <li><code>rdrobust</code> (0.99.4)</li>
@@ -247,15 +256,17 @@ Some data <strong>cannot be made</strong> publicly available.</li>
 <p>Portions of the code use Powershell scripting, which may require Windows 10 or higher.</p>
 <h3 id="controlled-randomness">Controlled Randomness</h3>
 <blockquote>
-<p>INSTRUCTIONS: Some estimation code uses random numbers, almost always provided by pseudorandom number generators (PRNGs). For reproducibility purposes, these should be provided with a deterministic seed, so that the sequence of numbers provided is the same for the original author and any replicators. While this is not always possible, it is a requirement by many journals’ policies. The seed should be set once, and not use a time-stamp. If using parallel processing, special care needs to be taken. If using multiple programs in sequence, care must be taken on how to call these programs, ideally from a main program, so that the sequence is not altered.</p>
+<p>INSTRUCTIONS: Some estimation code uses random numbers, almost always provided by pseudorandom number generators (PRNGs). For reproducibility purposes, these should be provided with a deterministic seed, so that the sequence of numbers provided is the same for the original author and any replicators. While this is not always possible, it is a requirement by many journals’ policies. The seed should be set once, and not use a time-stamp. If using parallel processing, special care needs to be taken. If using multiple programs in sequence, care must be taken on how to call these programs, ideally from a main program, so that the sequence is not altered. If no PRNG is used, check the other box.</p>
 </blockquote>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 Random seed is set at line _____ of program ______</li>
+<li><input type="checkbox" disabled="" />
+No Pseudo random generator is used in the analysis described here.</li>
 </ul>
-<h3 id="memory-and-runtime-requirements">Memory and Runtime Requirements</h3>
+<h3 id="memory-runtime-storage-requirements">Memory, Runtime, Storage Requirements</h3>
 <blockquote>
-<p>INSTRUCTIONS: Memory and compute-time requirements may also be relevant or even critical. Some example text follows. It may be useful to break this out by Table/Figure/section of processing. For instance, some estimation routines might run for weeks, but data prep and creating figures might only take a few minutes.</p>
+<p>INSTRUCTIONS: Memory and compute-time requirements may also be relevant or even critical. Some example text follows. It may be useful to break this out by Table/Figure/section of processing. For instance, some estimation routines might run for weeks, but data prep and creating figures might only take a few minutes. You should also describe how much storage is required in addition to the space visible in the typical repository, for instance, because data will be unzipped, data downloaded, or temporary files written.</p>
 </blockquote>
 <h4 id="summary">Summary</h4>
 <p>Approximate time needed to reproduce the analyses on a standard (CURRENT YEAR) desktop machine:</p>
@@ -276,19 +287,34 @@ Random seed is set at line _____ of program ______</li>
 3-14 days</li>
 <li><input type="checkbox" disabled="" />
 &gt; 14 days</li>
-<li><input type="checkbox" disabled="" />
-Not feasible to run on a desktop machine, as described below.</li>
+</ul>
+<p>Approximate storage space needed:</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" />
+&lt; 25 MBytes</p></li>
+<li><p><input type="checkbox" disabled="" />
+25 MB - 250 MB</p></li>
+<li><p><input type="checkbox" disabled="" />
+250 MB - 2 GB</p></li>
+<li><p><input type="checkbox" disabled="" />
+2 GB - 25 GB</p></li>
+<li><p><input type="checkbox" disabled="" />
+25 GB - 250 GB</p></li>
+<li><p><input type="checkbox" disabled="" />
+&gt; 250 GB</p></li>
+<li><p><input type="checkbox" disabled="" />
+Not feasible to run on a desktop machine, as described below.</p></li>
 </ul>
 <h4 id="details">Details</h4>
-<p>The code was last run on a <strong>4-core Intel-based laptop with MacOS version 10.14.4</strong>.</p>
-<p>Portions of the code were last run on a <strong>32-core Intel server with 1024 GB of RAM, 12 TB of fast local storage</strong>. Computation took 734 hours.</p>
-<p>Portions of the code were last run on a <strong>12-node AWS R3 cluster, consuming 20,000 core-hours</strong>.</p>
+<p>The code was last run on a <strong>4-core Intel-based laptop with MacOS version 10.14.4 with 200GB of free space</strong>.</p>
+<p>Portions of the code were last run on a <strong>32-core Intel server with 1024 GB of RAM, 12 TB of fast local storage</strong>. Computation took <strong>734 hours</strong>.</p>
+<p>Portions of the code were last run on a <strong>12-node AWS R3 cluster, consuming 20,000 core-hours, with 2TB of attached storage</strong>.</p>
 <blockquote>
 <p>INSTRUCTIONS: Identifiying hardware and OS can be obtained through a variety of ways: Some of these details can be found as follows:</p>
 <ul>
 <li>(Windows) by right-clicking on “This PC” in File Explorer and choosing “Properties”</li>
 <li>(Mac) Apple-menu &gt; “About this Mac”</li>
-<li>(Linux) see code in <a href="https://github.com/AEADataEditor/replication-template/blob/master/tools/linux-system-info.sh">tools/linux-system-info.sh</a>`</li>
+<li>(Linux) see code in <a href="https://github.com/AEADataEditor/replication-template/blob/master/tools/linux-system-info.sh">linux-system-info.sh</a>`</li>
 </ul>
 </blockquote>
 <h2 id="description-of-programscode">Description of programs/code</h2>
