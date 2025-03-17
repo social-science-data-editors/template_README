@@ -42,7 +42,7 @@ jobs:
 
     # Create sparse README
     - name: Create sparse README
-      run: _scripts/sparsify.sh template-README.md template/README_sparse.md
+      run: _scripts/sparsify.sh template-README.md _README_sparse.md
 
 
     - name: Convert HTML to PDF (annotated)
@@ -58,11 +58,13 @@ jobs:
     - name: Run docker for Docx (sparse)
       uses: docker://pandoc/latex:2.9
       with:
-          args: "template/README_sparse.md --standalone -t docx                           -o templates/README.docx --lua-filter=_scripts/links-to-html.lua"
+          args: "_README_sparse.md --standalone -t docx                           -o templates/README.docx --lua-filter=_scripts/links-to-html.lua"
     - name: Run docker for latex (sparse)
       uses: docker://pandoc/latex:2.9
       with:
-          args: "template/README_sparse.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
+          args: "_README_sparse.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
+    - name: Move sparse to output folder
+      run: "mv _README_sparse.md templates/README_sparse.md"
     - name: Set up git config
       run: |
           # setup the username and email. 
