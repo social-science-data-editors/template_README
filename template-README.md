@@ -182,9 +182,12 @@ Portions of the code use Powershell scripting, which may require Windows 10 or h
 
 ### Controlled Randomness
 
-> INSTRUCTIONS: Some estimation code uses random numbers, almost always provided by pseudorandom number generators (PRNGs). For reproducibility purposes, these should be provided with a deterministic seed, so that the sequence of numbers provided is the same for the original author and any replicators. While this is not always possible, it is a requirement by many journals' policies. The seed should be set once, and not use a time-stamp. If using parallel processing, special care needs to be taken. If using multiple programs in sequence, care must be taken on how to call these programs, ideally from a main program, so that the sequence is not altered. If no PRNG is used, check the other box.
+> INSTRUCTIONS: Some estimation code uses random numbers, almost always provided by pseudorandom number generators (PRNGs). For reproducibility purposes, these should be provided with a deterministic seed, so that the sequence of numbers provided is the same for the original author and any replicators. While this is not always possible, it is a requirement by many journals' policies. The seed should be set once, and not use a time-stamp. If using parallel processing, special care needs to be taken. If using multiple programs in sequence, care must be taken on how to call these programs, ideally from a main program, so that the sequence is not altered. 
+> INSTRUCTIONS: If no PRNG is used, check the appropriate box.
+> INSTRUCTIONS: If despite attempts to control for randomness, the results are not fully reproducible, please provide a detailed explanation of why, and ideally what kind of instability in numbers a replicator should expect. 
 
 - [ ] Random seed is set at line _____ of program ______
+- [ ] The analysis relies on random number generation, but setting a seed is not possible (explanation follows)
 - [ ] No Pseudo random generator is used in the analysis described here.
 
 ### Memory, Runtime, Storage Requirements
