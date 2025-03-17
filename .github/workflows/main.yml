@@ -55,6 +55,18 @@ jobs:
     - name: Remove temp directory
       run: "rm -rf temp "
     # Convert to other formats
+    - name: Run docker for latex (sparse)
+      uses: docker://pandoc/latex:2.9
+      with:
+          args: "_README_sparse.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
+    - name: Copy sparse to output folder
+      run: "cp _README_sparse.md templates/README_sparse.md"
+        
+    - name: Prepare for DOCX conversion
+      run: |
+        _scripts/prepare_docx.sh _README_sparse.md
+        _scripts/prepare_docx.sh _README.md
+
     - name: Run docker for Docx (annotated)
       uses: docker://pandoc/latex:2.9
       with:
@@ -63,12 +75,8 @@ jobs:
       uses: docker://pandoc/latex:2.9
       with:
           args: "_README_sparse.md --standalone -t docx                           -o templates/README.docx --lua-filter=_scripts/links-to-html.lua"
-    - name: Run docker for latex (sparse)
-      uses: docker://pandoc/latex:2.9
-      with:
-          args: "_README_sparse.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
-    - name: Move sparse to output folder
-      run: "mv _README_sparse.md templates/README_sparse.md"
+    
+
     - name: Set up git config
       run: |
           # setup the username and email. 
