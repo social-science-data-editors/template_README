@@ -46,7 +46,7 @@ jobs:
     - name: Create sparse README
       run: _scripts/sparsify.sh template-README.md _README_sparse.md
     - name: Add logo and footer
-      run: _scripts/add-metadata.sh template-README.md _README.md based
+      run: _scripts/add-metadata.sh template-README.md _README_sparse.md based
 
 
     - name: Convert HTML to PDF (annotated)
