@@ -2,7 +2,7 @@
 # Author: Lars Vilhuber
 
 # Check if correct number of arguments provided
-if [ "$#" -ne 2 ]; then
+if [ "$#" -ne 3 ]; then
     echo "Usage: $0 input_file output_file type"
     echo "Will APPEND information from the input file to the output file"
     exit 1
@@ -10,6 +10,7 @@ fi
 
 INPUT_FILE=$1
 OUTPUT_FILE=${2}
+type=$3
 TEMP_FILE=$(mktemp)
 YAML_FILE=$(mktemp)
 LOGOLOC="https://raw.githubusercontent.com/social-science-data-editors/social-science-data-editors.github.io/refs/heads/master/assets/ssde-logo-tight.jpeg"
