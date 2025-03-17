@@ -33,6 +33,8 @@ jobs:
 
     - name: Fix webroot
       run: _scripts/set_webroot.sh template-README.md _README.md
+    - name: Add logo and footer
+      run: _scripts/add-metadata.sh template-README.md _README.md cite
 
     # Create annotated README
     - name: Run docker for HTML 
@@ -43,6 +45,8 @@ jobs:
     # Create sparse README
     - name: Create sparse README
       run: _scripts/sparsify.sh template-README.md _README_sparse.md
+    - name: Add logo and footer
+      run: _scripts/add-metadata.sh template-README.md _README.md based
 
 
     - name: Convert HTML to PDF (annotated)
