@@ -42,27 +42,27 @@ jobs:
 
     # Create sparse README
     - name: Create sparse README
-      run: _scripts/sparsify.sh template-README.md _README_sparse.md
+      run: _scripts/sparsify.sh template-README.md template/README_sparse.md
 
-    - name: Run docker for HTML - sparse
-      uses: docker://pandoc/latex:2.9
-      with:
-          args: "_README_sparse.md --standalone -t html5                          -o templates/README.html --metadata pagetitle=README --lua-filter=_scripts/links-to-html.lua"
 
-    - name: Convert HTML to PDF
-      run: "/usr/bin/xvfb-run /usr/bin/wkhtmltopdf templates/README.html templates/README.pdf"
+    - name: Convert HTML to PDF (annotated)
+      run: "/usr/bin/xvfb-run /usr/bin/wkhtmltopdf templates/README.html templates/README_annotated.pdf"
     # Runs a single command using the runners shell
     - name: Remove temp directory
       run: "rm -rf temp "
     # Convert to other formats
-    - name: Run docker for Docx
+    - name: Run docker for Docx (annotated)
       uses: docker://pandoc/latex:2.9
       with:
-          args: "_README.md --standalone -t docx                           -o templates/README.docx --lua-filter=_scripts/links-to-html.lua"
-    - name: Run docker for latex
+          args: "_README.md --standalone -t docx                           -o templates/README_annotated.docx --lua-filter=_scripts/links-to-html.lua"
+    - name: Run docker for Docx (sparse)
       uses: docker://pandoc/latex:2.9
       with:
-          args: "_README.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
+          args: "template/README_sparse.md --standalone -t docx                           -o templates/README.docx --lua-filter=_scripts/links-to-html.lua"
+    - name: Run docker for latex (sparse)
+      uses: docker://pandoc/latex:2.9
+      with:
+          args: "template/README_sparse.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
     - name: Set up git config
       run: |
           # setup the username and email. 
@@ -71,7 +71,7 @@ jobs:
     - name: Add and remove files
       run: |
         cp template-README.md templates/README.md
-        git add templates/README.*
+        git add templates/README*
         git commit -m "Adding derived files"
         git checkout -b release-candidate
         git push origin release-candidate --force

@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author: Lars Vilhuber
 
 # Check if correct number of arguments provided
 if [ "$#" -ne 2 ]; then
