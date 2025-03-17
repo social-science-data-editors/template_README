@@ -1,4 +1,5 @@
 ---
+title: Template README for social science replication packages
 contributors:
   - Lars Vilhuber
   - Miklós Koren
@@ -6,13 +7,12 @@ contributors:
   - Marie Connolly
   - Florian Oswald
   - Peter Morrow
-
 version: 1.2.rc1
 ---
 
 # Template README and Guidance
 
-> INSTRUCTIONS: This README suggests structure and content that have been approved by various journals, see [Endorsers](Endorsers.md). It is available as [Markdown/txt](https://github.com/social-science-data-editors/template_README/blob/master/template-README.md), [Word](templates/README.docx), [LaTeX](templates/README.tex), and [PDF](templates/README.pdf). In practice, there are many variations and complications, and authors should feel free to adapt to their needs. All instructions can (should) be removed from the final README (in Markdown, remove lines starting with `> INSTRUCTIONS`). Please ensure that a PDF is submitted in addition to the chosen native format. Please ensure that the README is called "README" plus the appropriate suffix, not some non-standard name. This helps replicators immediately locate the necessary document.
+> INSTRUCTIONS: This README suggests structure and content that have been approved by various journals, see [Endorsers](Endorsers.md). It is available in annotated form as [Markdown/txt](https://github.com/social-science-data-editors/template_README/blob/master/template-README.md), [Word](templates/README_annotated.docx),  and [PDF](templates/README_annotated.pdf), and as ready-to-use templates in  [Markdown](templates/README_sparse.md), [Word](templates/README.docx), and [LaTeX](templates/README.tex). In practice, there are many variations and complications, and authors should feel free to adapt to their needs. If using the annotated versions, all instructions should be removed from the final README (in Markdown, remove lines starting with `> INSTRUCTIONS`). Please ensure that a PDF is submitted in addition to the chosen native format. Please ensure that the README is called "README" plus the appropriate suffix, not some non-standard name. This helps replicators immediately locate the necessary document.
 
 > INSTRUCTIONS: Change the title to reflect the title of the paper. For instance,
 
@@ -53,7 +53,7 @@ version: 1.2.rc1
 ### Statement about Rights
 
 - [ ] I certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript. 
-- [ ] I certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package. Appropriate permission are documented in the [LICENSE.txt](LICENSE.txt) file.
+- [ ] I certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package. Appropriate permission are documented in the [LICENSE.txt] file.
 
 
 ### (Optional, but recommended) License for Data
@@ -268,7 +268,7 @@ Portions of the code were last run on a **12-node AWS R3 cluster, consuming 20,0
 
 > INSTRUCTIONS: Most journal repositories provide for a default license, but do not impose a specific license. Authors should actively select a license. This should be provided in a LICENSE.txt file, separately from the README, possibly combined with the license for any data provided. Some code may be subject to inherited license requirements, i.e., the original code author may allow for redistribution only if the code is licensed under specific rules - authors should check with their sources. For instance, some code authors require that their article describing the econometrics of the package be cited. Licensing can be complex. Some non-legal guidance may be found [here](https://social-science-data-editors.github.io/guidance/Licensing_guidance.html).
 
-The code is licensed under a MIT/BSD/GPL [choose one!] license. See [LICENSE.txt](LICENSE.txt) for details.
+The code is licensed under a MIT/BSD/GPL [choose one!] license. See [LICENSE.txt] for details.
 
 ## Instructions to Replicators
 
