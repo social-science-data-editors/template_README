@@ -34,11 +34,20 @@ jobs:
     - name: Fix webroot
       run: _scripts/set_webroot.sh template-README.md _README.md
 
-    # Runs a set of commands using the runners shell
+    # Create annotated README
     - name: Run docker for HTML 
       uses: docker://pandoc/latex:2.9
       with:
           args: "_README.md --standalone -t html5                          -o templates/README.html --metadata pagetitle=README --lua-filter=_scripts/links-to-html.lua"
+
+    # Create sparse README
+    - name: Create sparse README
+      run: _scripts/sparsify.sh template-README.md _README_sparse.md
+
+    - name: Run docker for HTML - sparse
+      uses: docker://pandoc/latex:2.9
+      with:
+          args: "_README_sparse.md --standalone -t html5                          -o templates/README.html --metadata pagetitle=README --lua-filter=_scripts/links-to-html.lua"
 
     - name: Convert HTML to PDF
       run: "/usr/bin/xvfb-run /usr/bin/wkhtmltopdf templates/README.html templates/README.pdf"
