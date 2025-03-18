@@ -53,14 +53,14 @@ version: 1.2.rc1
 ### Statement about Rights
 
 - [ ] I certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript. 
-- [ ] I certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package. Appropriate permission are documented in the [LICENSE.txt] file.
+- [ ] I certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package. Appropriate permission are documented in the LICENSE.txt file file.
 
 
 ### (Optional, but recommended) License for Data
 
 > INSTRUCTIONS: Most data repositories provide for a default license, but do not impose a specific license. Authors should actively select a license. This should be provided in a LICENSE.txt file, separately from the README, possibly combined with the license for any code. Some data may be subject to inherited license requirements, i.e., the data provider may allow for redistribution only if the data is licensed under specific rules - authors should check with their data providers. For instance, a data use license might require that users - the current author, but also any subsequent users - cite the data provider. Licensing can be complex. Some non-legal guidance may be found [here](https://social-science-data-editors.github.io/guidance/Licensing_guidance.html). For multiple licenses within a data package, the `LICENSE.txt` file might contain the concatenation of all the licenses that apply (for instance, a custom license for one file, plus a CC-BY license for another file).
 >
-> INSTRUCTIONS: In many cases, it is not up to the creator of the replication package to simply define a license, a license may be *sticky* and be defined by the original data creator.
+> INSTRUCTIONS: In many cases, it is not up to the creator of the replication package to simply define a license, a license may be *sticky* and be defined by the original data creator. Journals may also require that the license to be part of a certain family of licenses. Always check the journal's  submission guidelines for any such requirements.
 
 *Example:* The data are licensed under a Creative Commons/CC-BY-NC license. See LICENSE.txt for details.
 
@@ -95,7 +95,7 @@ where the `Data.Name` column is then expanded in the subsequent paragraphs, and 
 > INSTRUCTIONS: For each data source, list the file that contains data from that source here; if providing combined/derived datafiles, list them separately after the DAS. For each data source or file, as appropriate, 
 > 
 > - Describe the format (open formats preferred, but some software-specific formats OK if open-source readers available): `.dta`, `.xlsx`, `.csv`, `netCDF`, etc.
-> - Provide a data dictionairy, either as part of the archive (list the file name), or at a URL (list the URL). Some formats are self-describing *if* they have the requisite information (e.g., `.dta` should have both variable and value labels).
+> - Provide a data dictionary, either as part of the archive (list the file name), or at a URL (list the URL). Some formats are self-describing *if* they have the requisite information (e.g., `.dta` should have both variable and value labels).
 > - List availability within the package
 > - Use proper bibliographic references in addition to a verbose description (and provide a bibliography at the end of the README, expanding those references)
 > - Describe how you obtained access to the data.
@@ -268,7 +268,7 @@ Portions of the code were last run on a **12-node AWS R3 cluster, consuming 20,0
 
 > INSTRUCTIONS: Most journal repositories provide for a default license, but do not impose a specific license. Authors should actively select a license. This should be provided in a LICENSE.txt file, separately from the README, possibly combined with the license for any data provided. Some code may be subject to inherited license requirements, i.e., the original code author may allow for redistribution only if the code is licensed under specific rules - authors should check with their sources. For instance, some code authors require that their article describing the econometrics of the package be cited. Licensing can be complex. Some non-legal guidance may be found [here](https://social-science-data-editors.github.io/guidance/Licensing_guidance.html).
 
-The code is licensed under a MIT/BSD/GPL [choose one!] license. See [LICENSE.txt] for details.
+The code is licensed under a MIT/BSD/GPL [choose one!] license. See LICENSE.txt file for details.
 
 ## Instructions to Replicators
 
