@@ -33,27 +33,50 @@ jobs:
 
     - name: Fix webroot
       run: _scripts/set_webroot.sh template-README.md _README.md
+    - name: Add logo and footer
+      run: _scripts/add-metadata.sh template-README.md _README.md cite
 
-    # Runs a set of commands using the runners shell
+    # Create annotated README
     - name: Run docker for HTML 
       uses: docker://pandoc/latex:2.9
       with:
           args: "_README.md --standalone -t html5                          -o templates/README.html --metadata pagetitle=README --lua-filter=_scripts/links-to-html.lua"
 
-    - name: Convert HTML to PDF
-      run: "/usr/bin/xvfb-run /usr/bin/wkhtmltopdf templates/README.html templates/README.pdf"
+    # Create sparse README
+    - name: Create sparse README
+      run: _scripts/sparsify.sh template-README.md _README_sparse.md
+    - name: Add logo and footer
+      run: _scripts/add-metadata.sh template-README.md _README_sparse.md based
+
+
+    - name: Convert HTML to PDF (annotated)
+      run: "/usr/bin/xvfb-run /usr/bin/wkhtmltopdf templates/README.html templates/README_annotated.pdf"
     # Runs a single command using the runners shell
     - name: Remove temp directory
       run: "rm -rf temp "
     # Convert to other formats
-    - name: Run docker for Docx
+    - name: Run docker for latex (sparse)
       uses: docker://pandoc/latex:2.9
       with:
-          args: "_README.md --standalone -t docx                           -o templates/README.docx --lua-filter=_scripts/links-to-html.lua"
-    - name: Run docker for latex
+          args: "_README_sparse.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
+    - name: Copy sparse to output folder
+      run: "cp _README_sparse.md templates/README_sparse.md"
+        
+    - name: Prepare for DOCX conversion
+      run: |
+        _scripts/prepare_docx.sh _README_sparse.md
+        _scripts/prepare_docx.sh _README.md
+
+    - name: Run docker for Docx (annotated)
       uses: docker://pandoc/latex:2.9
       with:
-          args: "_README.md --standalone -t latex --template=default.latex -o templates/README.tex --lua-filter=_scripts/links-to-html.lua"
+          args: "_README.md --standalone -t docx                           -o templates/README_annotated.docx --lua-filter=_scripts/links-to-html.lua"
+    - name: Run docker for Docx (sparse)
+      uses: docker://pandoc/latex:2.9
+      with:
+          args: "_README_sparse.md --standalone -t docx                           -o templates/README.docx --lua-filter=_scripts/links-to-html.lua"
+    
+
     - name: Set up git config
       run: |
           # setup the username and email. 
@@ -62,7 +85,7 @@ jobs:
     - name: Add and remove files
       run: |
         cp template-README.md templates/README.md
-        git add templates/README.*
+        git add templates/README*
         git commit -m "Adding derived files"
         git checkout -b release-candidate
         git push origin release-candidate --force
