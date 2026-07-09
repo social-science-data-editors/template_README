@@ -1,0 +1,503 @@
+<link rel="stylesheet" href="assets/css/readme-checklist.css">
+
+<div class="readme-checker">
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-text"><span id="answeredCount">0</span> of <span id="totalCount">0</span> items addressed</p>
+    </div>
+
+    <main id="checklist"></main>
+
+    <div class="summary" id="summary">
+        <div class="summary-stats">
+            <div class="stat">
+                <div class="stat-number" id="completePct">0%</div>
+                <div class="stat-label">Complete</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="answeredStat">0</div>
+                <div class="stat-label">Items Checked</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="remainingStat">0</div>
+                <div class="stat-label">Remaining</div>
+            </div>
+        </div>
+        <div id="summaryMessage"></div>
+    </div>
+
+    <footer class="checker-footer">
+        <p>Template adapted from the <a href="https://social-science-data-editors.github.io/template_README/"
+                target="_blank" rel="noopener">Social Science Data Editors' README template</a></p>
+    </footer>
+</div>
+
+<script>
+    const checklistData = [
+        {
+            title: "Title and Overview",
+            questions: [
+                {
+                    text: "What is the exact title of the paper, and who are the authors?",
+                    label: "My README includes the title and authors.",
+                    example: `Replication package for "Firm Characteristics and the Cross Section of Stock Returns" by Jane Doe and John Smith.`
+                },
+                {
+                    text: "In one short paragraph, what does this replication package contain, and how should a replicator proceed from start to finish?",
+                    label: "My README includes a brief overview of the replication package.",
+                    example: `This replication package contains code and data required to reproduce all tables and figures in the paper. The workflow consists of (i) downloading and cleaning raw data from public sources, (ii) constructing the final analysis dataset, and (iii) running estimation routines that generate the results. All steps can be executed by running the main script main.do. Total runtime is approximately 2 hours.
+
+<span class="or-divider">— or —</span>
+
+This replication package contains code and pseudo-data that allow users to run the full workflow and reproduce the analysis pipeline. The original licensed data used in the paper cannot be redistributed. The workflow consists of (i) loading pseudo-data with the same structure and key variable definitions as the original raw data, (ii) constructing the analysis data, and (iii) running the estimation routines that produce the tables and figures. All steps can be executed by running the main script main.do. Total runtime is approximately 10 minutes.`
+                }
+            ]
+        },
+        {
+            title: "Data Availability and Provenance",
+            questions: [
+                {
+                    text: "Does the paper use any external (non-simulated) data?",
+                    label: "I have indicated whether external data are used.",
+                    example: `This paper analyzes external data.
+
+<span class="or-divider">— or —</span>
+
+This paper does not involve analyzing external data; all data are simulated within the provided code.
+
+<span class="or-divider">— or —</span>
+
+All data are publicly available and downloaded automatically by the replication code.`
+                },
+                {
+                    text: "Do you provide statements about rights?",
+                    label: "My README includes data rights statements.",
+                    example: `I certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript.
+<span class="or-divider">— and —</span>
+I certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package.`
+                },
+                {
+                    text: "Under what license are the data distributed?",
+                    label: "My README includes a data license statement.",
+                    example: `The data are distributed under a Creative Commons Attribution 4.0 (CC-BY 4.0) license. See LICENSE.txt for details.`
+                },
+                {
+                    text: "What is the overall public availability status of the data?",
+                    label: "I have indicated the public availability status of the data.",
+                    example: `All data are publicly available.
+
+<span class="or-divider">— or —</span>
+
+Some data cannot be made publicly available due to confidentiality / licensing restrictions.
+
+<span class="or-divider">— or —</span>
+
+All data are included in the replication package.`
+                }
+            ]
+        },
+        {
+            title: "Summary and Details of Data Sources",
+            questions: [
+                {
+                    text: "For each data source, where does the data come from, what format is it in, how did you obtain access, and is it included with your replication package?",
+                    label: "My README includes detailed information about each data source.",
+                    example: `The unemployment rate data is downloaded from the Federal Reserve Economic Data (FRED) database maintained by the Federal Reserve Bank of St. Louis. The data series UNRATE contains the U.S. civilian unemployment rate as a percentage of the civilian labor force.
+
+Data source: Federal Reserve Bank of St. Louis, FRED
+Series ID: UNRATE
+URL: https://fred.stlouisfed.org/series/UNRATE
+Access: Public use, no registration required
+Format: CSV
+License: Public domain (U.S. government data)
+Download method: The code automatically downloads the data via the URL
+Provided: Yes
+
+<span class="or-divider">— or —</span>
+
+The mutual fund data are obtained from the Morningstar Mutual Fund Database maintained by Morningstar, Inc. The database contains detailed information on U.S. mutual funds, including fund returns, total net assets, expense ratios, investment objectives, and portfolio characteristics.
+
+Data source: Morningstar, Inc.
+Database: Morningstar Mutual Fund Database (Morningstar Direct)
+URL: https://www.morningstar.com/products/direct
+Access: Subscription-based; requires institutional or individual license
+Format: Proprietary database export (CSV/Excel)
+License: Proprietary; redistribution not permitted under standard licensing terms
+Download method: Data are manually downloaded via the Morningstar Direct platform
+Provided: No (licensed data cannot be redistributed)
+
+<span class="or-divider">— or —</span>
+
+The stock return data are obtained from the CRSP Monthly Stock File maintained by the Center for Research in Security Prices (CRSP) and distributed through Wharton Research Data Services (WRDS). The dataset contains monthly returns, prices, shares outstanding, and security identifiers for U.S. common stocks listed on major exchanges.
+
+Data source: Center for Research in Security Prices (CRSP)
+Database: CRSP Monthly Stock File (via WRDS)
+URL: https://wrds-www.wharton.upenn.edu/pages/about/data-vendors/center-for-research-in-security-prices-crsp/
+Access: Subscription-based; requires institutional WRDS license
+Format: Proprietary database export (CSV)
+License: Proprietary; redistribution not permitted under standard licensing terms
+Download method: Data are downloaded via the WRDS web interface
+Provided: No (licensed data cannot be redistributed)`
+                },
+                {
+                    text: "Can you summarize all datasets in a table?",
+                    label: "My README includes a summary table of all datasets.",
+                    example: `| Data file | Source | Notes | Provided |
+|----------|--------|-------|----------|
+| \`data/raw/unrate.dta\` | FRED | Unemployment rate | Yes |
+| \`data/raw/cpi.dta\` | FRED | CPI index | Yes |
+| \`data/analysis/main.dta\` | Derived | Final analysis dataset | Yes |`
+                },
+                {
+                    text: "Is there a data dictionary or codebook, and where is it?",
+                    label: "I have included a data dictionary or codebook.",
+                    example: `Variable labels are included in the pseudo-data.dta files.
+
+<span class="or-divider">— or —</span>
+
+A full codebook that describes each variable and table is provided in codebook.xlsx.`
+                },
+                {
+                    text: "Did you remove all licensed/proprietary data in the replication package that you upload to the RFS Dataverse?",
+                    label: "My replication package contains only publicly shareable data.",
+                    example: `The replication package does not violate license agreements.`
+                },
+                {
+                    text: "Does your replication package contain pseudo-data for those data sources that cannot be shared publicly?",
+                    label: "For non-shareable data, I have included pseudo-data in the replication package.",
+                    example: `The replication package includes pseudo-data when the raw data cannot be shared. We have verified that the pseudo-data allows the replication code to execute without errors.`
+                },
+                {
+                    text: "For confidential data, do you commit to preserving it for a specified period?",
+                    label: "I have included a data preservation statement for confidential data.",
+                    example: `The authors preserve all confidential data for five years after publication.`
+                }
+            ]
+        },
+        {
+            title: "Computational Requirements",
+            questions: [
+                {
+                    text: "What software is required, and do you include versions and packages?",
+                    label: "My README includes detailed software requirements.",
+                    example: `The code was last run using Stata 18 MP. The required user-written packages are estout (v3.31), reghdfe (v6.12.3), ftools (v2.49.1), and require (v1.0.4). ftools and require are dependencies of reghdfe. All packages are included in the ado directory.
+
+<span class="or-divider">— or —</span>
+
+The code was last run using Python 3.12. The core packages are: polars, plotnine, pyfixest. All dependencies and their exact versions are recorded in pyproject.toml and uv.lock.
+
+<span class="or-divider">— or —</span>
+
+The code was last run using R 4.4.1. The core packages are: dplyr, ggplot2, fixest. All dependencies and their exact versions are recorded in renv.lock.`
+                },
+                {
+                    text: "Is there an automated setup or dependency installation script?",
+                    label: "My README includes setup instructions or an installation script.",
+                    example: `The replication package includes setup.do, which installs all required packages and creates the necessary directory structure.
+
+<span class="or-divider">— or —</span>
+
+By running uv sync, the required packages and their versions are installed.
+
+<span class="or-divider">— or —</span>
+
+By running renv::restore(), the required packages and their versions are installed.`
+                },
+                {
+                    text: "Does the analysis rely on randomness, and if so, how is it controlled?",
+                    label: "I have included information about random number generation.",
+                    example: `Random seed is set at line 12 of the program programs/config.do.
+
+<span class="or-divider">— or —</span>
+
+The analysis relies on random number generation, but setting a seed is not possible.
+
+<span class="or-divider">— or —</span>
+
+No pseudo-random number generator is used in the analysis.`
+                },
+                {
+                    text: "How long does replication take on a standard desktop machine?",
+                    label: "My README includes estimated runtime information.",
+                    example: `Approximate time needed to reproduce the analyses on a standard (2026) desktop machine: 10-60 minutes.
+
+<span class="or-divider">— or —</span>
+
+Approximate time needed to reproduce the analyses on a scientific computing cluster with 200 cores: 4 days. In particular, programs/monte_carlo.py takes 90% of the computing time.`
+                },
+                {
+                    text: "How much disk space (storage) is required, separately for the pseudo-data run and the original data run?",
+                    label: "My README includes estimated storage requirements for both the pseudo-data and original data runs.",
+                    example: `Approximate storage space needed for the pseudo-data run: 25 MB - 250 MB.
+
+<span class="or-divider">— and —</span>
+
+Approximate storage space needed for the original data run: 5 GB - 50 GB.`
+                },
+                {
+                    text: "What are the memory (RAM) and CPU requirements, separately for the pseudo-data run and the original data run, and on what type of machine was the code last run?",
+                    label: "My README includes memory and CPU requirements for both the pseudo-data and original data runs, and describes the machine used.",
+                    example: `The code was last run on a 4-core laptop running macOS 14 with 16 GB RAM and approximately 50 GB of free disk space.
+
+Pseudo-data run: 2 CPU cores and 8 GB RAM.
+
+<span class="or-divider">— and —</span>
+
+Original data run: 16 CPU cores and 64 GB RAM.`
+                },
+                {
+                    text: "Does your code use forward slashes for file paths to ensure the package works across operating systems?",
+                    label: "I only use forward slashes for file paths in my code.",
+                    example: `All programs consistently use forward slashes ("/") for file paths to ensure compatibility across different operating systems.`
+                },
+                {
+                    text: "Does the code use relative paths from the project root?",
+                    label: "My code uses relative paths from the project root.",
+                    example: `All file paths are defined relative to the project root, minimizing the need for manual path adjustments and improving portability.`
+                }
+            ]
+        },
+        {
+            title: "Description of Programs",
+            questions: [
+                {
+                    text: "What is the main entry point for replication?",
+                    label: "My README specifies the main entry point for replication.",
+                    example: `Opening main.do automatically identifies the project root and running it executes all steps in the correct sequence.
+
+<span class="or-divider">— or —</span>
+
+Set the path in programs/main.do to the root of the project directory. Executing the script will then run all steps in the correct sequence.`
+                },
+                {
+                    text: "Are there ordering dependencies or special execution rules?",
+                    label: "My README describes any ordering dependencies or special execution rules.",
+                    example: `Programs in 02_analysis must be run sequentially, as later scripts depend on outputs from earlier ones.`
+                },
+                {
+                    text: "What license governs the code?",
+                    label: "My README includes a code license statement.",
+                    example: `The code is licensed under the MIT License. See LICENSE.txt for details.`
+                }
+            ]
+        },
+        {
+            title: "Instructions to Replicators",
+            questions: [
+                {
+                    text: "What exact steps should a replicator follow, in order?",
+                    label: "My README includes step-by-step replication instructions.",
+                    example: `1. Ensure you have Python 3.13 installed
+2. Ensure you have uv installed
+3. Run uv sync to install dependencies
+4. Ensure you have an active internet connection
+5. Run uv run python main.py`
+                },
+                {
+                    text: "Are there any manual or non-automated steps?",
+                    label: "My README specifies any manual or non-automated steps.",
+                    example: `No manual steps are required; all procedures are fully automated.
+
+<span class="or-divider">— or —</span>
+
+Figure 1 must be generated manually using Excel by following the instructions below.`
+                },
+                {
+                    text: "Did you verify that the steps for replicators work as intended?",
+                    label: "I have verified that the replication instructions work as intended.",
+                    example: `The authors verified that the instructions ran successfully in a clean environment on their local machine before submission, and the data editors independently verified them again.`
+                }
+            ]
+        },
+        {
+            title: "List of Tables and Programs",
+            questions: [
+                {
+                    text: "Which tables and figures are reproduced by the provided code?",
+                    label: "My README includes a list of all tables and figures, along with the scripts that generate them.",
+                    example: `All tables and figures in the main paper.
+
+<span class="or-divider">— or —</span>
+
+All tables and figures in the paper and the online appendix.`
+                },
+                {
+                    text: "For each table and figure, where is it generated, and how are the output files named?",
+                    label: "My README includes a summary table listing all tables and figures, along with the corresponding programs and output files.",
+                    example: `| Figure/Table | Program | Output file | Notes |
+|-------------|--------|-------------|------|
+| Table 1 | \`02_analysis/table1.do\` | \`table1.csv\` | Summary statistics |
+| Figure 2 | \`02_analysis/fig2.do\` | \`figure2.png\` | Baseline results |`
+                }
+            ]
+        },
+        {
+            title: "References",
+            questions: [
+                {
+                    text: "Are all datasets, even confidential ones, cited?",
+                    label: "My README includes citations for all datasets used.",
+                    example: `Standard and Poor's (S&P). 2024. Compustat-Capital IQ. Wharton Research Data Services. https://wrds-www.wharton.upenn.edu/pages/about/data-vendors/sp-global-market-intelligence/
+
+<span class="or-divider">— or —</span>
+
+Center for Research in Security Prices (CRSP). 2026. CRSP Stock File. Wharton Research Data Services. https://wrds-www.wharton.upenn.edu/pages/about/data-vendors/center-for-research-in-security-prices-crsp/`
+                }
+            ]
+        },
+        {
+            title: "Acknowledgements",
+            questions: [
+                {
+                    text: "Did you adapt templates, reuse text, or receive permission for materials?",
+                    label: "My README includes acknowledgements for templates adapted or text reused.",
+                    example: `This README template was adapted from the Social Science Data Editors' README template, available at https://social-science-data-editors.github.io/template_README/`
+                }
+            ]
+        }
+    ];
+
+    let totalQuestions = 0;
+    let answeredQuestions = 0;
+
+    function init() {
+        const container = document.getElementById('checklist');
+
+        checklistData.forEach((section, sIdx) => {
+            const sectionEl = document.createElement('div');
+            sectionEl.className = 'section';
+            sectionEl.innerHTML = `
+        <div class="section-header" data-section="${sIdx}">
+          <span class="section-number" id="sectionNum${sIdx}">${sIdx + 1}</span>
+          <h2>${section.title}</h2>
+        </div>
+        <div class="section-content" id="sectionContent${sIdx}"></div>
+      `;
+            container.appendChild(sectionEl);
+
+            const contentEl = document.getElementById(`sectionContent${sIdx}`);
+
+            section.questions.forEach((q, qIdx) => {
+                totalQuestions++;
+                const qId = `q${sIdx}_${qIdx}`;
+
+                const questionEl = document.createElement('div');
+                questionEl.className = 'question';
+                questionEl.id = qId;
+                questionEl.innerHTML = `
+          <div class="question-text">${q.text}</div>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" data-section="${sIdx}" data-question="${qIdx}" onchange="updateProgress()">
+              <span>${q.label || "Yes, my README includes this."}</span>
+            </label>
+          </div>
+          <button class="example-toggle" onclick="toggleExample('${qId}')">
+            <span class="arrow">▶</span> Show best practice example
+          </button>
+          <div class="example-content" id="${qId}_example">
+            <h4>Example</h4>
+            <pre>${q.example}</pre>
+          </div>
+        `;
+                contentEl.appendChild(questionEl);
+            });
+        });
+
+        document.getElementById('totalCount').textContent = totalQuestions;
+        updateProgress();
+    }
+
+    function toggleExample(qId) {
+        const exampleEl = document.getElementById(`${qId}_example`);
+        const toggleBtn = exampleEl.previousElementSibling;
+
+        exampleEl.classList.toggle('visible');
+        toggleBtn.classList.toggle('open');
+
+        if (exampleEl.classList.contains('visible')) {
+            toggleBtn.innerHTML = '<span class="arrow">▶</span> Hide example';
+        } else {
+            toggleBtn.innerHTML = '<span class="arrow">▶</span> Show best practice example';
+        }
+    }
+
+    function updateProgress() {
+        const checkboxes = document.querySelectorAll('.readme-checker input[type="checkbox"]');
+        answeredQuestions = 0;
+        const sectionCounts = {};
+
+        checkboxes.forEach(cb => {
+            const section = cb.dataset.section;
+            if (!sectionCounts[section]) {
+                sectionCounts[section] = { total: 0, checked: 0 };
+            }
+            sectionCounts[section].total++;
+
+            if (cb.checked) {
+                answeredQuestions++;
+                sectionCounts[section].checked++;
+            }
+
+            const questionEl = cb.closest('.question');
+            if (cb.checked) {
+                questionEl.classList.add('answered');
+            } else {
+                questionEl.classList.remove('answered');
+            }
+        });
+
+        // Update section indicators
+        Object.keys(sectionCounts).forEach(sIdx => {
+            const numEl = document.getElementById(`sectionNum${sIdx}`);
+            if (sectionCounts[sIdx].checked === sectionCounts[sIdx].total) {
+                numEl.classList.add('complete');
+            } else {
+                numEl.classList.remove('complete');
+            }
+        });
+
+        // Update progress bar
+        const pct = Math.round((answeredQuestions / totalQuestions) * 100);
+        document.getElementById('progressFill').style.width = `${pct}%`;
+        document.getElementById('answeredCount').textContent = answeredQuestions;
+
+        // Update summary
+        document.getElementById('completePct').textContent = `${pct}%`;
+        document.getElementById('answeredStat').textContent = answeredQuestions;
+        document.getElementById('remainingStat').textContent = totalQuestions - answeredQuestions;
+
+        // Generate missing items list
+        const messageEl = document.getElementById('summaryMessage');
+        if (answeredQuestions === totalQuestions) {
+            messageEl.innerHTML = '<div class="complete-message">✓ Your README addresses all recommended elements. Well done!</div>';
+        } else {
+            const missing = [];
+            checkboxes.forEach(cb => {
+                if (!cb.checked) {
+                    const questionText = cb.closest('.question').querySelector('.question-text').textContent;
+                    missing.push(questionText);
+                }
+            });
+
+            messageEl.innerHTML = `
+        <div class="missing-list">
+          <h4>Items not yet addressed:</h4>
+          <ul>
+            ${missing.slice(0, 5).map(m => `<li>${m}</li>`).join('')}
+            ${missing.length > 5 ? `<li><em>...and ${missing.length - 5} more</em></li>` : ''}
+          </ul>
+        </div>
+      `;
+        }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+</script>

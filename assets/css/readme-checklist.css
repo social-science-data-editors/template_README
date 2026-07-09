@@ -1,0 +1,392 @@
+/* README Checklist Styles */
+:root {
+    --ink: #1a1a2e;
+    --paper: #faf9f7;
+    --accent: #2a6197;
+    --accent-light: #e8f0f5;
+    --success: #2a6197;
+    --success-bg: #2a6197;
+    --warning: #b86e00;
+    --warning-bg: #fff4e5;
+    --border: #d4d2cd;
+    --muted: #6b6b6b;
+    --code-bg: #f4f3f1;
+}
+
+/* README Checklist Container */
+.readme-checker {
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+.readme-checker * {
+    box-sizing: border-box;
+}
+
+.readme-checker .checker-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--ink);
+}
+
+.readme-checker .checker-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.readme-checker .subtitle {
+    font-size: 1.1rem;
+}
+
+/* Sticky progress bar container */
+.readme-checker .progress-container {
+    position: sticky;
+    top: 0;
+    padding: 1rem 0.5rem 0.5rem;
+    z-index: 100;
+    background: var(--accent-light);
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+}
+
+.readme-checker .progress-bar {
+    background: var(--border);
+    height: 6px;
+    border-radius: 3px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.readme-checker .progress-fill {
+    background: var(--accent);
+    height: 100%;
+    width: 0%;
+    transition: width 0.4s ease;
+}
+
+.readme-checker .progress-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0.5rem 0 0 0;
+}
+
+.readme-checker .section {
+    margin-bottom: 2.5rem;
+}
+
+.readme-checker .section:first-of-type {
+    margin-top: 1.5rem;
+}
+
+.readme-checker .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.readme-checker .section-header:hover h2 {
+    color: var(--accent);
+}
+
+.readme-checker .section-number {
+    background: var(--ink);
+    color: var(--paper);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.readme-checker .section-number.complete {
+    background: var(--success);
+}
+
+.readme-checker h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.readme-checker .section-content {
+    padding-left: 2.75rem;
+}
+
+.readme-checker .question {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.readme-checker .question:hover {
+    border-color: var(--accent);
+}
+
+.readme-checker .question.answered {
+    border-color: var(--success);
+    box-shadow: inset 3px 0 0 var(--success);
+}
+
+.readme-checker .question-text {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.readme-checker .question-text::before {
+    content: "○";
+    color: var(--border);
+    flex-shrink: 0;
+}
+
+.readme-checker .question.answered .question-text::before {
+    content: "●";
+    color: var(--success);
+}
+
+.readme-checker .checkbox-group {
+    margin: 0.75rem 0 0.75rem 1.25rem;
+}
+
+.readme-checker .checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.readme-checker .checkbox-label input {
+    margin-top: 0.35rem;
+    accent-color: var(--accent);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.readme-checker .example-toggle {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.25rem 0;
+    margin-top: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.readme-checker .example-toggle:hover {
+    text-decoration: underline;
+}
+
+.readme-checker .example-toggle .arrow {
+    transition: transform 0.2s;
+    font-size: 0.7rem;
+}
+
+.readme-checker .example-toggle.open .arrow {
+    transform: rotate(90deg);
+}
+
+.readme-checker .example-content {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--code-bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent);
+}
+
+.readme-checker .example-content.visible {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.readme-checker .example-content h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+}
+
+.readme-checker .example-content pre {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--ink);
+}
+
+.readme-checker .example-content .or-divider {
+    text-align: center;
+    color: var(--muted);
+    font-style: italic;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.readme-checker .summary {
+    background: var(--accent-light);
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-top: 3rem;
+}
+
+.readme-checker .summary h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.readme-checker .summary-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.readme-checker .stat {
+    text-align: center;
+    padding: 1rem;
+    background: white;
+    border-radius: 6px;
+}
+
+.readme-checker .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.readme-checker .stat-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.readme-checker .missing-list {
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--warning-bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--warning);
+}
+
+.readme-checker .missing-list h4 {
+    color: var(--warning);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.readme-checker .missing-list ul {
+    margin-left: 1.25rem;
+    font-size: 0.95rem;
+}
+
+.readme-checker .missing-list li {
+    margin-bottom: 0.25rem;
+}
+
+.readme-checker .complete-message {
+    padding: 1rem 1.25rem;
+    background: var(--success-bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--success);
+    color: var(--success);
+    font-weight: 600;
+}
+
+.readme-checker .checker-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.readme-checker .checker-footer a {
+    color: var(--accent);
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .readme-checker {
+        font-size: 16px;
+    }
+
+    .readme-checker .checker-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .readme-checker .section-content {
+        padding-left: 0;
+    }
+
+    .readme-checker .question {
+        padding: 1rem;
+    }
+
+    .readme-checker .progress-container {
+        padding: 0.75rem 0.25rem 0.5rem;
+    }
+}
+
+.summary-actions {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.summary-actions a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.intro-actions {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--code-bg);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+}
+
+.intro-actions a {
+    color: var(--accent);
+    font-weight: 500;
+}
