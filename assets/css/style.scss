@@ -26,3 +26,99 @@ footer {
   color: #222222;
   text-decoration: underline;
 }
+
+/* Sidebar note styling */
+.sidebar-note {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f4f4f4;
+  border-left: 3px solid $base-color;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.sidebar-note p {
+  margin: 0 0 10px 0;
+}
+
+.sidebar-note p:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar-note strong {
+  color: $base-color;
+}
+
+/* Table styling for endorsers and similar data */
+.endorsers-table,
+.members-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.endorsers-table th,
+.members-table th {
+  background: #f4f4f4;
+  border-bottom: 2px solid $base-color;
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.endorsers-table td,
+.members-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  vertical-align: top;
+}
+
+.endorsers-table tr:hover,
+.members-table tr:hover {
+  background: #fafafa;
+}
+
+.endorsers-table a,
+.members-table a {
+  color: $base-color;
+  text-decoration: none;
+}
+
+.endorsers-table a:hover,
+.members-table a:hover {
+  text-decoration: underline;
+}
+
+/* Wide layout styles */
+.wide-wrapper {
+  width: 90%;
+  max-width: 1400px;
+}
+
+.wide-wrapper header {
+  width: 270px;
+  float: left;
+  position: fixed;
+}
+
+.wide-wrapper section {
+  width: calc(100% - 320px);
+  float: none;
+  margin-left: 320px;
+  padding-right: 0;
+}
+
+@media print, screen and (max-width: 960px) {
+  .wide-wrapper {
+    width: auto;
+  }
+  
+  .wide-wrapper header,
+  .wide-wrapper section {
+    float: none;
+    position: static;
+    width: auto;
+    margin-left: 0;
+  }
+}

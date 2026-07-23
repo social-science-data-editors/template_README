@@ -1,4 +1,5 @@
 ---
+layout: default
 permalink: index.html
 contributors:
   - Lars Vilhuber
@@ -7,6 +8,10 @@ contributors:
   - Marie Connolly
   - Peter Morrow
 doi: 10.5281/zenodo.7293838
+sidebar_note: |
+  **TL;DR**
+  
+  Use the [LaTeX](templates/README.tex), [Word](templates/README.docx), or [Markdown](https://github.com/social-science-data-editors/template_README/blob/release-candidate/templates/README.md) versions, and check against the [interactive checklist](interactive-checklist.html).
 ---
 
 
@@ -32,6 +37,11 @@ The template README is available in a variety of formats:
 - [Word](templates/README.docx)
 - [PDF](templates/README.pdf)
 - [Markdown](https://github.com/social-science-data-editors/template_README/blob/release-candidate/templates/README.md)
+
+### Interactive versions
+
+- [Build a README from scratch online at https://www.templatereadme.org/](https://www.templatereadme.org/)
+- [Use an interactive checklist to ensure your README is complete](interactive-checklist.html).
 
 ### Releases
 
