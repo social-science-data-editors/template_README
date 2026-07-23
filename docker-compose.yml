@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   jekyll:
     build: .
@@ -11,7 +9,7 @@ services:
       - bundle_cache:/usr/local/bundle
     environment:
       - JEKYLL_ENV=development
-    command: jekyll serve --host 0.0.0.0 --livereload --force_polling
+    command: bundle exec jekyll serve --host 0.0.0.0 --livereload --force_polling
 
 volumes:
   bundle_cache:
