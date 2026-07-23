@@ -27,21 +27,45 @@ footer {
   text-decoration: underline;
 }
 
+/* Sidebar note styling */
+.sidebar-note {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f4f4f4;
+  border-left: 3px solid $base-color;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.sidebar-note p {
+  margin: 0 0 10px 0;
+}
+
+.sidebar-note p:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar-note strong {
+  color: $base-color;
+}
+
 /* Wide layout styles */
 .wide-wrapper {
   width: 90%;
   max-width: 1400px;
 }
 
-.wide-wrapper section {
-  width: 100%;
-  float: none;
-  padding-right: 0;
+.wide-wrapper header {
+  width: 270px;
+  float: left;
+  position: fixed;
 }
 
-.wide-wrapper header {
-  width: 200px;
-  float: left;
+.wide-wrapper section {
+  width: calc(100% - 320px);
+  float: none;
+  margin-left: 320px;
+  padding-right: 0;
 }
 
 @media print, screen and (max-width: 960px) {
@@ -54,5 +78,6 @@ footer {
     float: none;
     position: static;
     width: auto;
+    margin-left: 0;
   }
 }

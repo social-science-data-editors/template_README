@@ -12,12 +12,12 @@ WORKDIR /site
 # Install Jekyll and Bundler
 RUN gem install jekyll bundler
 
-# Copy Gemfile if it exists (optional)
-# COPY Gemfile* ./
-# RUN bundle install
+# Copy Gemfile and install dependencies
+COPY Gemfile* ./
+RUN bundle install
 
 # Expose port 4000 for Jekyll server
 EXPOSE 4000
 
 # Default command to serve Jekyll with live reload
-CMD ["jekyll", "serve", "--host", "0.0.0.0", "--livereload", "--force_polling"]
+CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--livereload", "--force_polling"]
