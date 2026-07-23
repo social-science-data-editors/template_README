@@ -26,3 +26,33 @@ footer {
   color: #222222;
   text-decoration: underline;
 }
+
+/* Wide layout styles */
+.wide-wrapper {
+  width: 90%;
+  max-width: 1400px;
+}
+
+.wide-wrapper section {
+  width: 100%;
+  float: none;
+  padding-right: 0;
+}
+
+.wide-wrapper header {
+  width: 200px;
+  float: left;
+}
+
+@media print, screen and (max-width: 960px) {
+  .wide-wrapper {
+    width: auto;
+  }
+  
+  .wide-wrapper header,
+  .wide-wrapper section {
+    float: none;
+    position: static;
+    width: auto;
+  }
+}
