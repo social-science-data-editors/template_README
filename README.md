@@ -33,11 +33,11 @@ The template README is available in a variety of formats:
 - [PDF](templates/README.pdf)
 - [Markdown](https://github.com/social-science-data-editors/template_README/blob/release-candidate/templates/README.md)
 
-### Checklist
+### Interactive versions
 
-Use this interactive checklist to ensure your README is complete.
+- [Build a README from scratch online at https://www.templatereadme.org/](https://www.templatereadme.org/)
 
-[Open the interactive README checklist](interactive-checklist.html).
+- [Use an interactive checklist to ensure your README is complete](interactive-checklist.html).
 
 ### Releases
 
