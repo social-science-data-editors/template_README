@@ -6,6 +6,7 @@ The README is jointly developed by various social science editors. This document
 
 You need to be a member of this Github organization to contribute. Contact one of the existing members to find out how.
 
+
 ## Repository structure
 
 The repository has three key branches:
@@ -48,3 +49,7 @@ This is a manual process, using Github Actions. Authorized users will go to [`Cr
 When properly configured, the creation of the release also triggers the creation of a Zenodo version with DOI. 
 
 Manual action: the DOI must be manually added to the release page and to the main README.
+
+## Local Testing
+
+For information on setting up a local testing environment using Docker, see [Testing.md](Testing.md).
